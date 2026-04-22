@@ -1,0 +1,124 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:start/core/Theme/app_color.dart';
+import 'package:start/core/Theme/app_text_styles.dart';
+import 'package:start/features/onboarding/domain/entities/onboarding_entity.dart';
+
+class OnboarddingDetailsWidget extends StatelessWidget {
+  final OnboardingEntity entity;
+
+  const OnboarddingDetailsWidget({super.key, required this.entity});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 350.h,
+            width: 350.w,
+            child: Stack(
+              children: [
+                Positioned(
+                  left: entity.index % 2 == 1 ? null : 50.w,
+                  right: entity.index % 2 == 1 ? 70.w : null,
+                  top: 80,
+                  child: BlobImage(
+                    width: 150.w,
+                    height: 230.h,
+                    borderRadius: 90.r,
+                    imagePath: entity.imageBottom,
+                    colorFilter: ColorFilter.mode(
+                      AppColor.primaryDarkBlue.withAlpha(100),
+                      BlendMode.srcATop,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: entity.index % 2 == 1 ? 50.w : null,
+                  right: entity.index % 2 == 1 ? null : 70.w,
+                  top: 30,
+                  child: BlobImage(
+                    width: 150.w,
+                    height: 230.h,
+                    borderRadius: 85.r,
+                    imagePath: entity.imageTop,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: Text(
+              entity.title,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.headline.copyWith(
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          SizedBox(height: 15.h),
+          Text(
+            entity.subtitle,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.caption,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BlobImage extends StatelessWidget {
+  final double width;
+  final double height;
+  final double borderRadius;
+  final String imagePath;
+  final ColorFilter? colorFilter;
+  final BoxShadow? shadow;
+
+  const BlobImage({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.borderRadius,
+    required this.imagePath,
+    this.colorFilter,
+    this.shadow,
+  });
+
+  ImageProvider get _imageProvider => AssetImage(imagePath);
+
+  @override
+  Widget build(BuildContext context) {
+    Widget image = ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: ColorFiltered(
+        colorFilter:
+            colorFilter ??
+            const ColorFilter.mode(Colors.transparent, BlendMode.multiply),
+        child: Image(
+          image: _imageProvider,
+          width: width,
+          height: height,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+
+    if (shadow != null) {
+      image = DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius),
+          boxShadow: [shadow!],
+        ),
+        child: image,
+      );
+    }
+
+    return SizedBox(width: width, height: height, child: image);
+  }
+}

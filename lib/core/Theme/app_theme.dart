@@ -19,7 +19,7 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
 
-    fontFamily: "Muna",
+    fontFamily: "DIN",
 
     colorScheme: ColorScheme.light(
       primary: AppColor.primaryColor,
@@ -29,16 +29,13 @@ class AppTheme {
       surfaceVariant: Colors.grey.shade100, // cards, sheets
     ),
 
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColor.mainColor,
 
     dividerColor: Colors.transparent,
 
     splashFactory: NoSplash.splashFactory,
 
-    cardTheme: CardThemeData(
-      color: Colors.grey.shade100,
-      elevation: 0,
-    ),
+    cardTheme: CardThemeData(color: Colors.grey.shade100, elevation: 0),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.transparent,
@@ -64,7 +61,7 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.dark,
 
-    fontFamily: "Muna",
+    fontFamily: "DIN",
 
     colorScheme: const ColorScheme.dark().copyWith(
       primary: AppColor.primaryColor,
@@ -73,7 +70,6 @@ class AppTheme {
       surface: Colors.black,
       onSurface: Colors.white,
       surfaceVariant: Colors.grey.shade900, // dark variant for cards/sheets
-
     ),
 
     scaffoldBackgroundColor: Colors.black,
@@ -85,9 +81,7 @@ class AppTheme {
     cardTheme: CardThemeData(
       color: Colors.grey.shade900,
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.r),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
     ),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(

@@ -4,12 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/app_system_ui.dart';
 import 'package:start/core/constants/constants.dart';
+import 'package:start/core/models/progress_provider.dart';
 import 'package:start/features/language/domain/entities/app_localizations.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
-import 'package:start/start.dart';
-
+import 'package:start/features/splash_screen/presentation/pages/splash_page.dart';
 import 'core/Theme/theme_provider.dart';
-// import 'core/models/progress_provider.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -29,7 +28,7 @@ class MainApp extends StatelessWidget {
               child: Consumer<ThemeProvider>(
                 builder: (context, themeProvider, _) {
                   return MaterialApp(
-                    title: 'تأجير - Rent',
+                    title: 'بداية - Start',
                     debugShowCheckedModeBanner: false,
                     navigatorObservers: [routeObserver],
                     navigatorKey: Constants.navState,
@@ -42,7 +41,7 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     theme: themeProvider.getTheme(),
-                    home: const Start(),
+                    home: const SplashPage(),
                     builder: (context, child) {
                       return GestureDetector(
                         onTap: () {
@@ -56,14 +55,14 @@ class MainApp extends StatelessWidget {
                             child: Stack(
                               children: [
                                 child!,
-                                // Positioned(
-                                //   bottom: 0,
-                                //   child: Consumer<ProgressProvider>(
-                                //     builder: (ctx, pro, _) {
-                                //       return pro.showBottomSheetDialog();
-                                //     },
-                                //   ),
-                                // ),
+                                Positioned(
+                                  bottom: 0,
+                                  child: Consumer<ProgressProvider>(
+                                    builder: (ctx, pro, _) {
+                                      return pro.showBottomSheetDialog();
+                                    },
+                                  ),
+                                ),
                               ],
                             ),
                           ),

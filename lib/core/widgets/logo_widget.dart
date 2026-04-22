@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:start/core/constants/app_images.dart';
 
 class LogoWidget extends StatelessWidget {
   final double? width, height;
@@ -16,12 +17,12 @@ class LogoWidget extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        // Image.asset(
-        // AppImages.logo,
-        // fit: fit ?? BoxFit.contain,
-        // width: width,
-        // height: height,
-        // ),
+        Image.asset(
+          AppImages.logo,
+          fit: fit ?? BoxFit.contain,
+          width: width,
+          height: height,
+        ),
       ],
     );
   }

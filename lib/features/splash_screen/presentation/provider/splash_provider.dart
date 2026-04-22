@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:start/core/constants/constants.dart';
+import 'package:start/core/helper_function/prefs.dart';
+import 'package:start/features/onboarding/presentation/providers/onboarding_provider.dart';
 // import 'package:provider/provider.dart';
 import '../../../../core/helper_function/helper_function.dart';
 
 class SplashProvider extends ChangeNotifier {
-  void startApp() async {
+  void startApp(BuildContext context) async {
     await Future.wait([
       // Provider.of<SettingsProvider>(Constants.globalContext(), listen: false).getSettings(),
       // Provider.of<CategoriesProvider>(Constants.globalContext(), listen: false).refresh(),
@@ -27,6 +31,48 @@ class SplashProvider extends ChangeNotifier {
     // }else{
     //   Provider.of<AuthProvider>(Constants.globalContext(), listen: false).goToLoginPage();
     // }
+    if (getIsFirstTime()) {
+      // First time - go to onboarding
+      Provider.of<OnboardingProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).goToPage();
+    } else {
+      Provider.of<OnboardingProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).goToPage();
+      // Not first time - check for auth token
+      // String? token = sharedPreferences.getString('token');
+      // if (token != null) {
+      //   // User is logged in - go to main layout
+      //   Provider.of<NavigationBarProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).goToPage();
+      // } else {
+      //   // User not logged in - go to login
+      //   Provider.of<NavigationBarProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).goToPage();
+      //   Provider.of<AdsProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).getData();
+      //   Provider.of<CategoriesProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).getData();
+      //   Provider.of<SubCategoryHomeProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).getData();
+      //   Provider.of<ChatsProvider>(
+      //     Constants.globalContext(),
+      //     listen: false,
+      //   ).getChats();
+    }
   }
 
   void clear() {

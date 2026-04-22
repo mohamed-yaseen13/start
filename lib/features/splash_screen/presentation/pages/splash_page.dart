@@ -1,11 +1,11 @@
-// import 'package:camera/camera.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:provider/provider.dart';
+import 'package:start/core/Theme/app_system_ui.dart';
+import 'package:start/core/constants/constants.dart';
+import 'package:start/core/widgets/logo_widget.dart';
+import 'package:start/features/splash_screen/presentation/provider/splash_provider.dart';
 import '../../../../core/helper_function/helper_function.dart';
 import 'package:flutter/material.dart';
-
-// import '../../../../core/helper_function/image.dart';
-// import '../provider/splash_provider.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -21,34 +21,25 @@ class _SplashPageState extends State<SplashPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await delay(100);
-      // Provider.of<SplashProvider>(context, listen: false).startApp();
+      Provider.of<SplashProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).startApp(Constants.globalContext());
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: 1.sw,
-        height: 1.sh,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: .35.sw,
-                  height: .35.sw,
-                  decoration: const BoxDecoration(
-                    // image: DecorationImage(
-                    // image: AssetImage(Images.logo),fit: BoxFit.contain
-                    // )
-                  ),
-                ),
-              ],
-            ),
-          ],
+      body: AnnotatedRegion(
+        value: AppSystemUi.light(),
+        child: Container(
+          color: Colors.white,
+          width: 1.sw,
+          height: 1.sh,
+          child: Center(
+            child: LogoWidget(width: 0.5.sw, height: 0.2.sh),
+          ),
         ),
       ),
     );
