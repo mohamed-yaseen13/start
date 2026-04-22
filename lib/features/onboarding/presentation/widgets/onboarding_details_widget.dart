@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:start/core/Theme/app_color.dart';
 import 'package:start/core/Theme/app_text_styles.dart';
+import 'package:start/features/language/presentation/provider/language_provider.dart';
 import 'package:start/features/onboarding/domain/entities/onboarding_entity.dart';
 
-class OnboarddingDetailsWidget extends StatelessWidget {
+class OnboardingDetailsWidget extends StatelessWidget {
   final OnboardingEntity entity;
 
-  const OnboarddingDetailsWidget({super.key, required this.entity});
+  const OnboardingDetailsWidget({super.key, required this.entity});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class OnboarddingDetailsWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w),
             child: Text(
-              entity.title,
+              LanguageProvider.translate('onboarding', entity.title),
               textAlign: TextAlign.center,
               style: AppTextStyles.headline.copyWith(
                 fontWeight: FontWeight.w400,
@@ -62,7 +63,7 @@ class OnboarddingDetailsWidget extends StatelessWidget {
           ),
           SizedBox(height: 15.h),
           Text(
-            entity.subtitle,
+            LanguageProvider.translate('onboarding', entity.subtitle),
             textAlign: TextAlign.center,
             style: AppTextStyles.caption,
           ),

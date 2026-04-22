@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:start/core/Theme/app_text_styles.dart';
 import 'package:start/core/theme/app_color.dart';
+import 'package:start/features/language/presentation/provider/language_provider.dart';
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -21,7 +22,7 @@ class SkipButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          'تخطي', // i don't know how to translate
+          LanguageProvider.translate('global', 'skip'),
           style: AppTextStyles.caption,
         ),
       ),

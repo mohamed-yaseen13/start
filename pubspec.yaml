@@ -113,6 +113,7 @@ flutter:
   assets:
     - assets/images/logo/
     - assets/images/onboarding/
+    - assets/images/auth/
     - assets/lotties/
     - assets/fonts/
     - assets/languages/

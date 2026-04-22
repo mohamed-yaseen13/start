@@ -6,13 +6,14 @@ class SvgWidget extends StatelessWidget {
   final Color? color;
   final String svg;
   final BoxFit? fit;
-  const SvgWidget(
-      {this.height,
-      this.width,
-      this.color,
-      required this.svg,
-      super.key,
-      this.fit});
+  const SvgWidget({
+    this.height,
+    this.width,
+    this.color,
+    required this.svg,
+    super.key,
+    this.fit,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(

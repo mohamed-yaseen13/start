@@ -17,4 +17,7 @@ class AppImages {
       'assets/images/onboarding/on_boarding_3_top.jpg';
   static const String onboarding3bottom =
       'assets/images/onboarding/on_boarding_3_bottom.jpg';
+
+  // Auth
+  static const String authTopImage = 'assets/images/auth/auth_top_image.svg';
 }

@@ -1,111 +1,25 @@
 {
   "global": {
-    "loading": "Loading",
-    "see_all": "See All"
+    "skip": "تخطى"
   },
-  "auth": {
-    "upload_image": "Upload Image",
-    "login": "Login",
-    "welcome": "Welcome back! We've missed you",
-    "verify_phone": "Enter the verification code sent to (*num*)",
-    "enter_code": "Verify Phone",
-    "resend_otp": "Resend verification code",
-    "after": "after",
-    "complete_data": "Complete Your Data",
-    "edit_data": "Edit Your Data",
-    "profile_image": "Profile Picture",
-    "attach_image": "Attach Image",
-    "with_follow": "By continuing, you agree to the ",
-    "terms": "Terms of Use",
-    "and": " and ",
-    "privacy": "Privacy Policy",
-    "delete_account_title": "Do you want to delete your account? You will not be able to recover it.",
-    "delete_account": "Delete Account",
-    "logout_title": "Do you want to log out of your account?",
-    "logout": "Logout"
+  "onboarding": {
+    "title0": "ابحث عن المكان المثالي لمنزلك المستقبلي",
+    "title1": "اشتري عقارك بسرعة بنقرة واحدة فقط",
+    "title2": "اعثر على منزل أحلامك معنا",
+    "desc0": "ابحث عن أفضل مكان لمنزل أحلامك مع عائلتك وأحبائك",
+    "desc1": "عملية شراء العقارات باستخدام هاتفك الذكي فقط",
+    "desc2": "ما عليك سوى البحث عن العقار المفضل لديك واختياره."
+  },
+  "login": {
+    "hi": "مرحبًا بعودتك !",
+    "login_text": "سجّل الدخول باستخدام رقم الهاتف وكلمة المرور\nأو حسابك على وسائل التواصل الاجتماعي للمتابعة",
+    "login" : "تسجيل الدخول",
+    "phone_number": "رقم الهاتف",
+    "password": "كلمة المرور",
+    "forgot_password": "هل نسيت كلمة السر ؟"
   },
   "buttons": {
-    "cancel": "Cancel",
-    "confirm": "Confirm",
-    "save": "Save",
-    "send": "Send",
-    "login": "Login"
-  },
-  "error": {
-    "try_again": "Try Again Later"
-  },
-  "warning": {
-    "must_open_microphone": "Must Allow Microphone Permission",
-    "access_camera": "Allow Access Camera",
-    "open_gps": "Must Open Gps To Get Current Location",
-    "open_gps_settings": "Must Open Gps To Get Current Location From Settings",
-    "location_error": "Location Error",
-    "try_again": "There was an error try again",
-    "must_login": "Must Login",
-    "must_login_first": "Must Login First"
-  },
-  "validation": {
-    "phone_required": "Phone number is required",
-    "phone_invalid": "Phone number is invalid",
-    "english_phone": "Phone number should not contain English letters",
-    "name": "Name is required",
-    "email": "Email is required",
-    "incorrect_email": "Incorrect email format",
-    "otp_required": "OTP is required",
-    "otp_length": "OTP must be at least 4 digits",
-    "password_required": "Password is required",
-    "government": "Please select government",
-    "image": "Please upload image",
-    "image_id": "Please upload ID image",
-    "address": "Address is required",
-    "area": "Area is required",
-    "part": "Part is required",
-    "first_name": "First name is required",
-    "last_name": "Last name is required",
-    "apartment": "Apartment is required",
-    "building": "Building is required",
-    "address_name": "Address name is required",
-    "street_name": "Street name is required",
-    "phone_check": "Please enter phone",
-    "empty_about_me": "About me cannot be empty",
-    "confirm_password": "Password does not match",
-    "select_date": "Please select date",
-    "ad_title": "Ad title is required",
-    "auction_title": "Auction title is required",
-    "description": "Description is required",
-    "price": "Price is required",
-    "choose_category": "Please choose category",
-    "choose_sub_category": "Please choose subcategory",
-    "add_filter": "Please add a filter",
-    "add_price_type": "Please add price type",
-    "add_map_address": "Please add map address"
-  },
-  "success": {
-    "success": "Success"
-  },
-  "empty": {
-    "no_data": "No Data Found"
-  },
-  "update_dialog": {
-    "new_update": "New Update",
-    "update": "Update",
-    "cancel": "Cancel"
-  },
-  "time": {
-    "year": "Year",
-    "month": "Month",
-    "day": "Day",
-    "hour": "Hour",
-    "minute": "Minute",
-    "sec": "Seconds"
-  },
-  "image_picker": {
-    "pick": "Pick Image",
-    "camera": "Camera",
-    "gallery": "Gallery",
-    "change_camera": "Change Camera",
-    "upload_image": "Upload Images *count*",
-    "delete_image": "Delete Image"
-
+    "next": "التالي",
+    "start now": "ابدأ الآن"
   }
 }

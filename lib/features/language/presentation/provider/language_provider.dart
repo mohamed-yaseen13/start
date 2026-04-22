@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/constants/constants.dart';
+import 'package:start/features/language/domain/use_cases/translate_text.dart';
 import '../../../../core/helper_function/api.dart';
 import '../../../../core/helper_function/prefs.dart';
 import 'dart:ui' as ui;
@@ -9,7 +8,7 @@ import 'dart:ui' as ui;
 class LanguageProvider extends ChangeNotifier {
   late Locale
   language; // use this var when control state of language widget then use it for change language
-  late Locale _appLocale;
+  late Locale _appLocale = const Locale('ar');
   static const List<Locale> languages = [Locale('ar', ''), Locale("en", "")];
   Locale get appLocal => _appLocale;
   static String? languageCode() {
@@ -74,20 +73,20 @@ class LanguageProvider extends ChangeNotifier {
   }
 
   String getTranslate(String key, value) {
-    Map localizedStrings =
+    Map? localizedStrings =
         ApiHandel.getInstance.languages[_appLocale.languageCode];
-    if (localizedStrings.containsKey(key) &&
-        localizedStrings[key].containsKey(value)) {
-      return localizedStrings[key][value];
+    if (localizedStrings != null &&
+        localizedStrings.containsKey(key) &&
+        localizedStrings[key] is Map &&
+        (localizedStrings[key] as Map).containsKey(value)) {
+      return localizedStrings[key][value]?.toString() ?? value;
     }
     return value;
   }
 
   static String translate(String key, String value) {
-    LanguageProvider languageProvider = Provider.of(
-      Constants.globalContext(),
-      listen: false,
-    );
-    return languageProvider.getTranslate(key, value);
+    // LanguageProvider languageProvider = Provider.of(Constants.globalContext(),listen: false);
+    // return languageProvider.getTranslate(key,value);
+    return Translate.translate(key, value);
   }
 }

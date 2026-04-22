@@ -22,7 +22,7 @@ class AppTheme {
     fontFamily: "DIN",
 
     colorScheme: ColorScheme.light(
-      primary: AppColor.primaryColor,
+      primary: AppColor.primaryDarkBlue,
       onPrimary: Colors.white,
       surface: Colors.white,
       onSurface: Colors.black,
