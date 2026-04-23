@@ -27,7 +27,7 @@ class LoginFormWidget extends StatelessWidget {
           ),
           SizedBox(height: 12.h),
           RememberMeAndForgotPasswordRowWidget(),
-          SizedBox(height: 12.h),
+          SizedBox(height: 24.h),
           ButtonWidget(
             onTap: () {
               FocusScope.of(context).unfocus();

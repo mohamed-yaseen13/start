@@ -1,7 +1,7 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:start/core/Theme/app_color.dart';
+import 'package:start/core/Theme/app_color.dart';
 import 'package:start/core/Theme/app_theme.dart';
 import '../../features/language/presentation/provider/language_provider.dart';
 import '../constants/constants.dart';
@@ -22,7 +22,7 @@ void showToast(
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.CENTER,
       timeInSecForIosWeb: 3,
-      // backgroundColor: color ?? AppColor.defaultColor,
+      backgroundColor: color ?? AppColor.primaryDarkBlue,
       textColor: Colors.white,
       fontSize: 13.sp,
     );
@@ -50,11 +50,11 @@ void showToast(
         contentType: ContentType.warning,
         messageTextStyle: AppTextStyles.body.copyWith(
           fontSize: Constants.isTablet ? 30 : 15.sp,
-          color: theme.colorScheme.onSurface,
+          color: theme.colorScheme.onPrimary,
         ),
         titleTextStyle: AppTextStyles.title.copyWith(
           fontSize: Constants.isTablet ? 40 : 13.sp,
-          color: theme.colorScheme.onSurface,
+          color: theme.colorScheme.onPrimary,
         ),
         color: color ?? theme.colorScheme.primary,
       ),

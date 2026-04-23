@@ -26,7 +26,7 @@ class LoginProvider extends ChangeNotifier {
   bool isObscureText = true;
   void toggleObscureText() {
     isObscureText = !isObscureText;
-    // notifyListeners();
+    notifyListeners();
   }
 
   void goToPage() {
@@ -53,9 +53,7 @@ class LoginProvider extends ChangeNotifier {
         obscureText: isObscureText,
         next: false,
         suffix: GestureDetector(
-          onTap: () {
-            isObscureText = !isObscureText;
-          },
+          onTap: toggleObscureText, // i don't know why it's not working
           child: Icon(isObscureText ? Icons.visibility_off : Icons.visibility),
         ),
       ),

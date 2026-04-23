@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/app_color.dart';
 import 'package:start/core/theme/app_text_styles.dart';
@@ -16,6 +17,8 @@ class RememberMeAndForgotPasswordRowWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CheckBoxWidget(
+          width: 16.w,
+          height: 16.h,
           check: login.isRememberMe,
           onChange: (value) {
             login.toggleRememberMe();

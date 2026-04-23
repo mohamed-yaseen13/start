@@ -7,11 +7,15 @@ class CheckBoxWidget extends StatelessWidget {
     required this.check,
     required this.onChange,
     this.padding,
+    this.height,
+    this.width,
   });
 
   final bool check;
   final EdgeInsets? padding;
   final void Function(bool val) onChange;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +35,14 @@ class CheckBoxWidget extends StatelessWidget {
           ),
         ),
         child: Container(
-          width: 24.w,
-          height: 24.w,
+          width: width ?? 24.w,
+          height: height ?? 24.w,
           decoration: BoxDecoration(
             color: check ? colors.primary : Colors.white,
             borderRadius: BorderRadius.circular(6),
           ),
           child: check
-              ? Icon(
-            Icons.done,
-            size: 16.sp,
-            color: colors.onPrimary,
-          )
+              ? Icon(Icons.done, size: 16.sp, color: colors.onPrimary)
               : null,
         ),
       ),
