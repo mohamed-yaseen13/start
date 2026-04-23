@@ -58,10 +58,6 @@ class OnboardingProvider extends ChangeNotifier {
       Constants.globalContext(),
       listen: false,
     ).goToPage();
-    // Provider.of<LoginProvider>(
-    // Constants.globalContext(),
-    // listen: false,
-    // ).goToPage();
   }
 
   void goToPage() {

@@ -14,8 +14,9 @@ import 'package:start/features/language/presentation/provider/language_provider.
 import 'package:start/features/start/providers/start_provider.dart';
 
 class LoginProvider extends ChangeNotifier {
-  List<TextFieldModel> loginInputs = [];
   final formKey = GlobalKey<FormState>();
+  final passwordController = TextEditingController();
+  final phoneController = TextEditingController();
 
   bool isRememberMe = false;
   void toggleRememberMe() {
@@ -29,35 +30,36 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  List<TextFieldModel> get loginInputs => [
+    TextFieldModel(
+      key: "phone",
+      controller: phoneController,
+      title: Text(
+        LanguageProvider.translate('login', "phone_number"),
+        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+      ),
+      textInputType: TextInputType.phone,
+      validator: (value) => validatePhone(value!),
+      next: true,
+    ),
+    TextFieldModel(
+      key: "password",
+      title: Text(
+        LanguageProvider.translate('login', "password"),
+        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+      ),
+      controller: passwordController,
+      validator: (value) => validatePassword(value!),
+      obscureText: isObscureText,
+      next: false,
+      suffix: GestureDetector(
+        onTap: toggleObscureText,
+        child: Icon(isObscureText ? Icons.visibility_off : Icons.visibility),
+      ),
+    ),
+  ];
+
   void goToPage() {
-    loginInputs = [
-      TextFieldModel(
-        key: "phone",
-        controller: TextEditingController(),
-        title: Text(
-          LanguageProvider.translate('login', "phone_number"),
-          style: AppTextStyles.title.copyWith(fontSize: 14.sp),
-        ),
-        textInputType: TextInputType.phone,
-        validator: (value) => validatePhone(value!),
-        next: true,
-      ),
-      TextFieldModel(
-        key: "password",
-        title: Text(
-          LanguageProvider.translate('login', "password"),
-          style: AppTextStyles.title.copyWith(fontSize: 14.sp),
-        ),
-        controller: TextEditingController(),
-        validator: (value) => validatePassword(value!),
-        obscureText: isObscureText,
-        next: false,
-        suffix: GestureDetector(
-          onTap: toggleObscureText, // i don't know why it's not working
-          child: Icon(isObscureText ? Icons.visibility_off : Icons.visibility),
-        ),
-      ),
-    ];
     navPARU(LoginPage());
   }
 
