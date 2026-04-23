@@ -72,7 +72,7 @@ class LoginProvider extends ChangeNotifier {
     // data['token'] = token;
     // data['remember_me'] = isRememberMe; // i added this [ mohamed yaseen ]
     loading();
-    delay(1000); // i added this [ mohamed yaseen ] just for test
+    await delay(3000); // i added this [ mohamed yaseen ] just for test
     // Either<DioException, UserEntity> login = await UserUseCases(sl()).login(data);
     navPopLoading();
     Provider.of<StartProvider>(
