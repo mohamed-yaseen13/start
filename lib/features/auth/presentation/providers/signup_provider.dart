@@ -9,18 +9,19 @@ import 'package:start/core/helper_function/loading.dart';
 import 'package:start/core/helper_function/navigation.dart';
 import 'package:start/core/helper_function/text_form_field_validation.dart';
 import 'package:start/core/models/text_field_model.dart';
-import 'package:start/features/auth/presentation/pages/login_page.dart';
+import 'package:start/features/auth/presentation/pages/signup_page.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 import 'package:start/features/start/providers/start_provider.dart';
 
-class LoginProvider extends ChangeNotifier {
+class SignupProvider extends ChangeNotifier {
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final phoneController = TextEditingController();
+  final nameController = TextEditingController();
+  bool isAcceptTerms = false;
 
-  bool isRememberMe = false;
-  void toggleRememberMe() {
-    isRememberMe = !isRememberMe;
+  void toggleAcceptTerms() {
+    isAcceptTerms = !isAcceptTerms;
     notifyListeners();
   }
 
@@ -30,7 +31,7 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<TextFieldModel> get loginInputs => [
+  List<TextFieldModel> get signupInputs => [
     TextFieldModel(
       key: "phone",
       controller: phoneController,
@@ -40,6 +41,16 @@ class LoginProvider extends ChangeNotifier {
       ),
       textInputType: TextInputType.phone,
       validator: (value) => validatePhone(value!),
+      next: true,
+    ),
+    TextFieldModel(
+      key: "name",
+      controller: nameController,
+      title: Text(
+        LanguageProvider.translate('signup', "user_name"),
+        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+      ),
+      validator: (value) => validateFirstName(value!),
       next: true,
     ),
     TextFieldModel(
@@ -60,10 +71,10 @@ class LoginProvider extends ChangeNotifier {
   ];
 
   void goToPage() {
-    navPARU(LoginPage());
+    navP(SignupPage());
   }
 
-  Future loginButton() async {
+  Future signupButton() async {
     // String token = await FirebaseMessaging.instance.getToken() ?? "123";
     // Map<String, dynamic> data = {};
     // for (var element in loginInputs) {
@@ -87,10 +98,10 @@ class LoginProvider extends ChangeNotifier {
     // });
   }
 
-  void submitLoginForm() {
+  void submitSignupForm() {
     String nameError = '';
 
-    for (var element in loginInputs) {
+    for (var element in signupInputs) {
       if (!formKey.currentState!.validate()) {
         String? error = element.validator!(element.controller.text);
         if (error != null && error.isNotEmpty) {
@@ -99,7 +110,7 @@ class LoginProvider extends ChangeNotifier {
       }
     }
     if (nameError.isEmpty) {
-      loginButton();
+      signupButton();
     } else {
       showToast(nameError.trim());
     }

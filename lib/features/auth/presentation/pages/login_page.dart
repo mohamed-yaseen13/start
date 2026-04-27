@@ -45,15 +45,22 @@ class LoginPage extends StatelessWidget {
                     DividerWidget(),
                     SizedBox(height: 32.h),
                     LoginWithSocialWidget(),
-                    SizedBox(height: 32.h),
-                    DontHaveAnAccountWidget(),
-                    SizedBox(height: 64.h),
                   ],
                 ),
               ),
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom + 32.h,
+          top: 12.h,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [DontHaveAnAccountWidget()],
+        ),
       ),
     );
   }
