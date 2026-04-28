@@ -92,8 +92,9 @@ class TextFieldWidget extends StatelessWidget {
                 textAlignVertical: TextAlignVertical.center,
                 obscureText: obscureText,
                 onChanged: onChange,
-                onTap: onTextTap ??
-                        () {
+                onTap:
+                    onTextTap ??
+                    () {
                       final c = controller;
                       if (c.selection ==
                           TextSelection.fromPosition(
@@ -112,15 +113,20 @@ class TextFieldWidget extends StatelessWidget {
                 autofocus: autoFocus,
                 cursorColor: cursorColor ?? theme.colorScheme.primary,
                 style: style ?? theme.textTheme.bodyMedium,
-                validator: validator ??
-                        (value) {
+                validator:
+                    validator ??
+                    (value) {
                       if (value == null || value.isEmpty) {
-                        return LanguageProvider.translate('validation', 'field');
+                        return LanguageProvider.translate(
+                          'validation',
+                          'field',
+                        );
                       }
                       return null;
                     },
-                onEditingComplete: onEditingComplete ??
-                        () {
+                onEditingComplete:
+                    onEditingComplete ??
+                    () {
                       FocusScope.of(context).unfocus();
                       if (next) FocusScope.of(context).nextFocus();
                     },
@@ -134,7 +140,8 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   InputDecoration inputDecoration(ThemeData theme) {
-    final borderClr = borderColor ?? theme.colorScheme.onSurface.withOpacity(0.5);
+    final borderClr =
+        borderColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.5);
 
     return InputDecoration(
       counterText: counter ?? "",
@@ -158,12 +165,16 @@ class TextFieldWidget extends StatelessWidget {
       border: focusedBorder != null
           ? null
           : border(
+              borderRadius: borderRadius,
+              color: borderClr,
+              otp: otp,
+              borderWidth: borderWidth,
+            ),
+      disabledBorder: border(
         borderRadius: borderRadius,
         color: borderClr,
         otp: otp,
-        borderWidth: borderWidth,
       ),
-      disabledBorder: border(borderRadius: borderRadius, color: borderClr, otp: otp),
       focusedBorder: border(
         borderRadius: borderRadius,
         color: focusedBorder ?? borderClr,
@@ -176,25 +187,38 @@ class TextFieldWidget extends StatelessWidget {
         borderWidth: borderWidth,
         otp: otp,
       ),
-      errorBorder: border(borderRadius: borderRadius, color: Colors.red, otp: otp),
-      focusedErrorBorder:
-      border(borderRadius: borderRadius, color: Colors.red, otp: otp),
+      errorBorder: border(
+        borderRadius: borderRadius,
+        color: Colors.red,
+        otp: otp,
+      ),
+      focusedErrorBorder: border(
+        borderRadius: borderRadius,
+        color: Colors.red,
+        otp: otp,
+      ),
       hoverColor: Colors.grey,
       prefixIcon: prefix,
-      suffixIcon: suffix ??
+      suffixIcon:
+          suffix ??
           (onSuffixTap == null
               ? null
               : IconButton(
-            onPressed: onSuffixTap,
-            icon: Icon(
-              obscureText ? Icons.visibility_off_outlined : Icons.visibility,
-              size: 20,
-              color: obscureText ? Colors.grey : theme.colorScheme.primary,
-            ),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          )),
-      contentPadding: contentPadding ??
+                  onPressed: onSuffixTap,
+                  icon: Icon(
+                    obscureText
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility,
+                    size: 20,
+                    color: obscureText
+                        ? Colors.grey
+                        : theme.colorScheme.primary,
+                  ),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                )),
+      contentPadding:
+          contentPadding ??
           EdgeInsets.only(
             left: .03.sw,
             right: .05.sw,

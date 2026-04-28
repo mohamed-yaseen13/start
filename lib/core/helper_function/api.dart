@@ -41,7 +41,10 @@ class ApiHandel {
       ),
     );
     await Future.wait([
-      for (var i in LanguageProvider.languages) Dio().get('${Constants.baseUri}app_languages/user/${i.languageCode}.json'),
+      for (var i in LanguageProvider.languages)
+        Dio().get(
+          '${Constants.baseUri}app_languages/user/${i.languageCode}.json',
+        ),
     ]).then((value) {
       Map data = {};
       for (int i = 0; i < LanguageProvider.languages.length; i++) {
@@ -73,9 +76,9 @@ class ApiHandel {
   }
 
   Future<Either<DioException, Response>> get(
-      path, [
-        Map<String, dynamic>? data,
-      ]) async {
+    dynamic path, [
+    Map<String, dynamic>? data,
+  ]) async {
     try {
       await reLogin(path);
       cancelToken = CancelToken();
@@ -90,11 +93,9 @@ class ApiHandel {
 
       return Left(dioException(response));
     } on DioException catch (e) {
-
       log(e.response?.data.toString() ?? "");
       return Left(e.response == null ? e : dioException(e.response!));
     } catch (e) {
-
       return Left(
         DioException(
           requestOptions: RequestOptions(baseUrl: Constants.domain, path: path),
@@ -105,9 +106,9 @@ class ApiHandel {
   }
 
   Future<Either<DioException, Response>> post(
-      path,
-      Map<String, dynamic> data,
-      ) async {
+    dynamic path,
+    Map<String, dynamic> data,
+  ) async {
     log(path);
     log(data.toString());
     try {
@@ -117,9 +118,15 @@ class ApiHandel {
         path,
         data: FormData.fromMap(data),
         cancelToken: cancelToken,
-        onSendProgress: Provider.of<ProgressProvider>(Constants.globalContext(), listen: false).setData,
+        onSendProgress: Provider.of<ProgressProvider>(
+          Constants.globalContext(),
+          listen: false,
+        ).setData,
       );
-      Provider.of<ProgressProvider>(Constants.globalContext(), listen: false).clear();
+      Provider.of<ProgressProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).clear();
       if (response.statusCode == 200 &&
           ((!response.data.containsKey('code')) ||
               response.data['code'] == 200)) {
@@ -127,11 +134,17 @@ class ApiHandel {
       }
       return Left(dioException(response));
     } on DioException catch (e) {
-      Provider.of<ProgressProvider>(Constants.globalContext(), listen: false).clear();
+      Provider.of<ProgressProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).clear();
       log(e.response?.data.toString() ?? "");
       return Left(e.response == null ? e : dioException(e.response!));
     } catch (e, line) {
-      Provider.of<ProgressProvider>(Constants.globalContext(), listen: false).clear();
+      Provider.of<ProgressProvider>(
+        Constants.globalContext(),
+        listen: false,
+      ).clear();
       debugPrint(line.toString());
       return Left(
         DioException(
@@ -157,8 +170,7 @@ class ApiHandel {
     return DioException(
       requestOptions: response.requestOptions,
       message: msg,
-      type:
-      msg == LanguageProvider.translate('error', 'try_again')
+      type: msg == LanguageProvider.translate('error', 'try_again')
           ? DioExceptionType.unknown
           : DioExceptionType.badResponse,
       response: response,
@@ -196,8 +208,7 @@ class ApiHandel {
 
   Future reLogin(String url) async {
     String? token = sharedPreferences.getString('token');
-    if (
-        !url.contains('refresh_token') &&
+    if (!url.contains('refresh_token') &&
         token != null &&
         token.isNotEmpty &&
         Jwt.isExpired(token)) {

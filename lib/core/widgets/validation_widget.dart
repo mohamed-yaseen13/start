@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ValidationWidget extends StatelessWidget {
-  const ValidationWidget({
-    super.key,
-    required this.conditions,
-    this.child,
-  });
+  const ValidationWidget({super.key, required this.conditions, this.child});
 
   final List<Map<String, dynamic>> conditions;
   final Widget? child;
@@ -26,7 +22,7 @@ class ValidationWidget extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (child != null) child!,
+            ?child,
             if (state.hasError) SizedBox(height: .005.sh),
             if (state.hasError)
               Text(
@@ -54,4 +50,3 @@ class ValidationWidget extends StatelessWidget {
 //     );
 //   }
 // }
-

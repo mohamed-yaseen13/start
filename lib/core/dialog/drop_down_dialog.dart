@@ -29,7 +29,9 @@ Future showDropDownDialog<T extends DropDownClass>(T dropDownClass) async {
 
   await showModalBottomSheet(
     context: context,
-    backgroundColor: context.colors.surfaceVariant.withOpacity(0.9),
+    backgroundColor: context.colors.surfaceContainerHighest.withValues(
+      alpha: 0.9,
+    ),
     isDismissible: true,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(25.r)),
@@ -57,7 +59,9 @@ Future showDropDownDialog<T extends DropDownClass>(T dropDownClass) async {
                     minHeight: 0.65.sh,
                   ),
                   decoration: BoxDecoration(
-                    color: context.colors.surfaceVariant.withOpacity(0.9),
+                    color: context.colors.surfaceContainerHighest.withValues(
+                      alpha: 0.9,
+                    ),
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(25.r),
                     ),

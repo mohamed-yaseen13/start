@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/constants/app_images.dart';
-import 'package:start/core/theme/app_color.dart';
-import 'package:start/core/theme/app_text_styles.dart';
 import 'package:start/core/widgets/divider_widget.dart';
 import 'package:start/core/widgets/dont_have_an_account_widget.dart';
 import 'package:start/features/auth/presentation/widgets/login_form_widget.dart';
@@ -30,13 +29,15 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       LanguageProvider.translate('login', 'hi'),
-                      style: AppTextStyles.title.copyWith(fontSize: 20.sp),
+                      style: context.text.titleMedium!.copyWith(
+                        fontSize: 20.sp,
+                      ),
                     ),
                     SizedBox(height: 12.h),
                     Text(
                       LanguageProvider.translate('login', 'login_text'),
-                      style: AppTextStyles.body.copyWith(
-                        color: AppColor.secondaryGray4,
+                      style: context.text.bodyMedium!.copyWith(
+                        color: context.colors.secondary,
                       ),
                     ),
                     SizedBox(height: 24.h),
@@ -53,10 +54,7 @@ class LoginPage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom + 32.h,
-          top: 12.h,
-        ),
+        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [DontHaveAnAccountWidget()],

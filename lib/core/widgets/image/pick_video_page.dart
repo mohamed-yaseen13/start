@@ -39,7 +39,9 @@ class _AddVideoPageState extends State<AddVideoPage> {
     final cameras = await availableCameras();
     _controller = CameraController(cameras[0], ResolutionPreset.veryHigh);
     await _controller!.initialize();
-    _maxZoomLevel = await _controller!.getMaxZoomLevel().then((v) => v < 8 ? v : 9);
+    _maxZoomLevel = await _controller!.getMaxZoomLevel().then(
+      (v) => v < 8 ? v : 9,
+    );
     _minZoomLevel = await _controller!.getMinZoomLevel();
     if (mounted) setState(() {});
   }
@@ -53,22 +55,39 @@ class _AddVideoPageState extends State<AddVideoPage> {
 
   void _toggleCamera() async {
     final cameras = await availableCameras();
-    final currentIndex = cameras.indexWhere((c) => c == _controller?.description);
+    final currentIndex = cameras.indexWhere(
+      (c) => c == _controller?.description,
+    );
     final nextIndex = (currentIndex + 1) % cameras.length;
     await _controller?.dispose();
-    _controller = CameraController(cameras[nextIndex], ResolutionPreset.veryHigh);
+    _controller = CameraController(
+      cameras[nextIndex],
+      ResolutionPreset.veryHigh,
+    );
     await _controller!.initialize();
-    _maxZoomLevel = await _controller!.getMaxZoomLevel().then((v) => v < 8 ? v : 9);
+    _maxZoomLevel = await _controller!.getMaxZoomLevel().then(
+      (v) => v < 8 ? v : 9,
+    );
     _minZoomLevel = await _controller!.getMinZoomLevel();
     if (mounted) setState(() {});
   }
 
   void _handleZoom(double scale) {
-    num factor = scale > 1 ? 0.07 : scale < 0.4 ? 0.7 : 0.2;
+    num factor = scale > 1
+        ? 0.07
+        : scale < 0.4
+        ? 0.7
+        : 0.2;
     setState(() {
       _currentZoomLevel = scale > 1
-          ? (_currentZoomLevel + (scale * factor)).clamp(_minZoomLevel, _maxZoomLevel)
-          : (_currentZoomLevel - (scale * factor)).clamp(_minZoomLevel, _maxZoomLevel);
+          ? (_currentZoomLevel + (scale * factor)).clamp(
+              _minZoomLevel,
+              _maxZoomLevel,
+            )
+          : (_currentZoomLevel - (scale * factor)).clamp(
+              _minZoomLevel,
+              _maxZoomLevel,
+            );
       _controller?.setZoomLevel(_currentZoomLevel);
     });
   }
@@ -154,12 +173,13 @@ class _AddVideoPageState extends State<AddVideoPage> {
                   child: _controller == null
                       ? const SizedBox()
                       : GestureDetector(
-                    onScaleUpdate: (details) => _handleZoom(details.scale),
-                    child: AspectRatio(
-                      aspectRatio: _controller!.value.aspectRatio,
-                      child: CameraPreview(_controller!),
-                    ),
-                  ),
+                          onScaleUpdate: (details) =>
+                              _handleZoom(details.scale),
+                          child: AspectRatio(
+                            aspectRatio: _controller!.value.aspectRatio,
+                            child: CameraPreview(_controller!),
+                          ),
+                        ),
                 ),
                 // Back button
                 PositionedDirectional(
@@ -169,7 +189,7 @@ class _AddVideoPageState extends State<AddVideoPage> {
                     margin: EdgeInsets.all(0.015.sw),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withValues(alpha: 0.3),
                     ),
                     child: BackButton(
                       color: colors.primary,
@@ -187,16 +207,25 @@ class _AddVideoPageState extends State<AddVideoPage> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha: 0.5),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.008.sh),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 0.03.sw,
+                      vertical: 0.008.sh,
+                    ),
                     child: Row(
                       children: [
-                        const Icon(Icons.fiber_manual_record, color: Colors.red, size: 20),
+                        const Icon(
+                          Icons.fiber_manual_record,
+                          color: Colors.red,
+                          size: 20,
+                        ),
                         SizedBox(width: 0.02.sw),
                         Text(
                           '$minute:00 / ${convertSecToMin(sec)}',
-                          style: textTheme.bodySmall?.copyWith(color: colors.onPrimary),
+                          style: textTheme.bodySmall?.copyWith(
+                            color: colors.onPrimary,
+                          ),
                         ),
                       ],
                     ),
@@ -208,8 +237,13 @@ class _AddVideoPageState extends State<AddVideoPage> {
                   left: 0,
                   right: 0,
                   child: Container(
-                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.5),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 5.w,
+                      vertical: 2.h,
+                    ),
                     child: Row(
                       children: [
                         if (record == 0)
@@ -218,12 +252,20 @@ class _AddVideoPageState extends State<AddVideoPage> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.camera_enhance_sharp,
-                                    color: colors.onPrimary, size: Constants.isTablet ? 40 : 20),
+                                Icon(
+                                  Icons.camera_enhance_sharp,
+                                  color: colors.onPrimary,
+                                  size: Constants.isTablet ? 40 : 20,
+                                ),
                                 SizedBox(height: 4.h),
                                 Text(
-                                  LanguageProvider.translate('image_picker', 'change_camera'),
-                                  style: textTheme.bodySmall?.copyWith(color: colors.onPrimary),
+                                  LanguageProvider.translate(
+                                    'image_picker',
+                                    'change_camera',
+                                  ),
+                                  style: textTheme.bodySmall?.copyWith(
+                                    color: colors.onPrimary,
+                                  ),
                                 ),
                               ],
                             ),
@@ -231,18 +273,31 @@ class _AddVideoPageState extends State<AddVideoPage> {
                         const Spacer(),
                         if ([0, 2].contains(record))
                           InkWell(
-                            onTap: () => record == 0 ? _startRecording() : _resume(),
-                            child: Icon(Icons.play_circle, color: colors.onPrimary, size: 40),
+                            onTap: () =>
+                                record == 0 ? _startRecording() : _resume(),
+                            child: Icon(
+                              Icons.play_circle,
+                              color: colors.onPrimary,
+                              size: 40,
+                            ),
                           ),
                         if ([1].contains(record))
                           InkWell(
                             onTap: _pause,
-                            child: Icon(Icons.pause_circle, color: colors.onPrimary, size: 40),
+                            child: Icon(
+                              Icons.pause_circle,
+                              color: colors.onPrimary,
+                              size: 40,
+                            ),
                           ),
                         if ([1, 2, 3].contains(record))
                           InkWell(
                             onTap: _reset,
-                            child: Icon(Icons.stop_circle_rounded, color: colors.onPrimary, size: 40),
+                            child: Icon(
+                              Icons.stop_circle_rounded,
+                              color: colors.onPrimary,
+                              size: 40,
+                            ),
                           ),
                         if ([1, 2, 3].contains(record))
                           ButtonWidget(
@@ -251,7 +306,9 @@ class _AddVideoPageState extends State<AddVideoPage> {
                             width: 0.2.sw,
                             height: 0.045.sh,
                             color: colors.onPrimary,
-                            textStyle: textTheme.bodySmall?.copyWith(color: colors.primary),
+                            textStyle: textTheme.bodySmall?.copyWith(
+                              color: colors.primary,
+                            ),
                             borderRadius: 25,
                           ),
                       ],

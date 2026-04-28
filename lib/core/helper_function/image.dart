@@ -35,7 +35,7 @@ Future<T?> chooseMedia<T>({bool video = false, bool multiple = false}) async {
       return file as T?;
     } else {
       if (multiple) {
-        final List<XFile>? files = await picker.pickMultiImage();
+        final List<XFile> files = await picker.pickMultiImage();
         return files as T?;
       } else {
         final XFile? file = await picker.pickImage(
@@ -101,7 +101,7 @@ Future<T?> chooseMedia<T>({bool video = false, bool multiple = false}) async {
                   );
                 } else {
                   final T? file = await pickFromSource(ImageSource.camera);
-                  Navigator.pop(ctx, file);
+                  Navigator.pop(Constants.globalContext(), file);
                 }
               }
             },
@@ -116,7 +116,7 @@ Future<T?> chooseMedia<T>({bool video = false, bool multiple = false}) async {
             onPressed: () async {
               if (await checkPermissions()) {
                 final T? file = await pickFromSource(ImageSource.gallery);
-                Navigator.pop(ctx, file);
+                Navigator.pop(Constants.globalContext(), file);
               }
             },
             child: Text(

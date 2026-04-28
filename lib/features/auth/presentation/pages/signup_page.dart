@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:start/core/Theme/app_color.dart';
-import 'package:start/core/theme/app_text_styles.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/already_have_an_account_widget.dart';
 import 'package:start/core/widgets/divider_widget.dart';
 import 'package:start/features/auth/presentation/widgets/login_with_social_widget.dart';
@@ -14,7 +13,7 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(surfaceTintColor: AppColor.mainColor),
+      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.w),
         child: SingleChildScrollView(
@@ -23,13 +22,13 @@ class SignupPage extends StatelessWidget {
             children: [
               Text(
                 LanguageProvider.translate('signup', 'title'),
-                style: AppTextStyles.title.copyWith(fontSize: 20.sp),
+                style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
               ),
               SizedBox(height: 12.h),
               Text(
                 LanguageProvider.translate('signup', 'signup_text'),
-                style: AppTextStyles.body.copyWith(
-                  color: AppColor.secondaryGray4,
+                style: context.text.bodyMedium!.copyWith(
+                  color: context.colors.secondary,
                 ),
               ),
               SizedBox(height: 24.h),
@@ -43,10 +42,7 @@ class SignupPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom + 32.h,
-          top: 12.h,
-        ),
+        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [AlreadyHaveAnAccountWidget()],

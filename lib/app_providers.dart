@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/theme_provider.dart';
 import 'package:start/core/models/progress_provider.dart';
+import 'package:start/features/auth/presentation/providers/forgot_password_provider.dart';
 import 'package:start/features/auth/presentation/providers/login_provider.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
@@ -25,6 +26,7 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => OnboardingProvider()),
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => SignupProvider()),
+        ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
       ],
       child: child,
     );

@@ -28,7 +28,7 @@ class ImagePreviewWidget extends StatelessWidget {
     return SafeArea(
       top: false,
       child: Scaffold(
-        backgroundColor: colors.background, // theme-aware
+        backgroundColor: colors.surface, // theme-aware
         bottomNavigationBar: img == null && !showSendButton
             ? null
             : Column(
@@ -51,11 +51,11 @@ class ImagePreviewWidget extends StatelessWidget {
               ),
         extendBody: true,
         appBar: AppBar(
-          backgroundColor: colors.background, // theme-aware
+          backgroundColor: colors.surface, // theme-aware
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back,
-              color: colors.onBackground, // theme-aware
+              color: colors.onSurface, // theme-aware
               size: 6.w,
             ),
             onPressed: () => Navigator.of(Constants.globalContext()).pop(),

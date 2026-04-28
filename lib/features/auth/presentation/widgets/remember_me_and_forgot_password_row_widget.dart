@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:start/core/Theme/app_color.dart';
-import 'package:start/core/theme/app_text_styles.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/checkbox_widget.dart';
+import 'package:start/features/auth/presentation/providers/forgot_password_provider.dart';
 import 'package:start/features/auth/presentation/providers/login_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 
@@ -26,11 +26,13 @@ class RememberMeAndForgotPasswordRowWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // ResetPasswordProvider.goto
+            Provider.of<ForgotPasswordProvider>(context, listen: false).goTo();
           },
           child: Text(
             LanguageProvider.translate('login', 'forgot_password'),
-            style: AppTextStyles.body.copyWith(color: AppColor.primaryDarkBlue),
+            style: context.text.bodyMedium!.copyWith(
+              color: context.colors.primary,
+            ),
           ),
         ),
       ],

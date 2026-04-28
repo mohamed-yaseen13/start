@@ -4,7 +4,6 @@ import '../constants/constants.dart';
 import '../dialog/drop_down_dialog.dart';
 import '../models/drop_down_class.dart';
 
-
 class DropDownWidget extends StatefulWidget {
   final DropDownClass dropDownClass;
   final double? width, borderRadius;
@@ -43,7 +42,9 @@ class DropDownWidgetState extends State<DropDownWidget> {
               widget.onTap!();
             } else {
               widget.beforeTap?.call();
-              showDropDownDialog(widget.dropDownClass).then((_) => setState(() {}));
+              showDropDownDialog(
+                widget.dropDownClass,
+              ).then((_) => setState(() {}));
             }
           },
           child: Container(
@@ -51,7 +52,11 @@ class DropDownWidgetState extends State<DropDownWidget> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
               color: widget.color ?? colors.surface, // theme-aware background
-              border: Border.all(color: widget.borderColor ?? colors.onSurface.withOpacity(0.5)),
+              border: Border.all(
+                color:
+                    widget.borderColor ??
+                    colors.onSurface.withValues(alpha: 0.5),
+              ),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -76,7 +81,9 @@ class DropDownWidgetState extends State<DropDownWidget> {
                   const Spacer(),
                   Icon(
                     Icons.keyboard_arrow_down_sharp,
-                    color: colors.onSurface.withOpacity(0.6), // theme-aware arrow
+                    color: colors.onSurface.withValues(
+                      alpha: 0.6,
+                    ), // theme-aware arrow
                     size: Constants.isTablet ? 60 : 30,
                   ),
                   const SizedBox(height: 10),

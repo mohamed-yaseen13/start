@@ -30,7 +30,9 @@ class CheckBoxWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: check ? colors.primary : colors.onSurface.withOpacity(0.3),
+            color: check
+                ? colors.primary
+                : colors.onSurface.withValues(alpha: 0.3),
             width: 2,
           ),
         ),

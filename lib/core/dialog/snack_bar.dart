@@ -67,6 +67,6 @@ void showToast(
     ..showMaterialBanner(materialBanner);
 
   Future.delayed(const Duration(seconds: 3), () {
-    ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+    ScaffoldMessenger.of(Constants.globalContext()).hideCurrentMaterialBanner();
   });
 }

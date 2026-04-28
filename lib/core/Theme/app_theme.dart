@@ -26,7 +26,9 @@ class AppTheme {
       onPrimary: Colors.white,
       surface: Colors.white,
       onSurface: Colors.black,
-      surfaceVariant: Colors.grey.shade100, // cards, sheets
+      surfaceContainerHighest: Colors.grey.shade100, // cards, sheets
+      secondary: AppColor.secondaryGray4,
+      tertiary: AppColor.secondaryGray2,
     ),
 
     scaffoldBackgroundColor: AppColor.mainColor,
@@ -69,7 +71,12 @@ class AppTheme {
       onPrimaryContainer: Color(0xFFC7BFB8), // 👈 your old value
       surface: Colors.black,
       onSurface: Colors.white,
-      surfaceVariant: Colors.grey.shade900, // dark variant for cards/sheets
+      surfaceContainerHighest:
+          Colors.grey.shade900, // dark variant for cards/sheets
+      secondary:
+          AppColor.secondaryGray4, // to be updated to activate the dark theme
+      tertiary:
+          AppColor.secondaryGray2, // to be updated to activate the dark theme
     ),
 
     scaffoldBackgroundColor: Colors.black,

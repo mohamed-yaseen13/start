@@ -18,8 +18,7 @@ class DropDownOptionWidget extends StatefulWidget {
   });
 
   @override
-  State<DropDownOptionWidget> createState() =>
-      _DropDownOptionWidgetState();
+  State<DropDownOptionWidget> createState() => _DropDownOptionWidgetState();
 }
 
 class _DropDownOptionWidgetState extends State<DropDownOptionWidget> {
@@ -47,15 +46,17 @@ class _DropDownOptionWidgetState extends State<DropDownOptionWidget> {
             child: ListTile(
               leading: Transform.scale(
                 scale: Constants.isTablet ? 2 : 1,
-                child: Radio(
-                  value: widget.data,
+                child: RadioGroup<dynamic>(
                   groupValue: widget.selected,
                   onChanged: (val) {
                     widget.rebuild();
                   },
-                  activeColor: colors.primary, // theme-aware
-                  visualDensity: VisualDensity.compact,
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  child: Radio<dynamic>(
+                    value: widget.data,
+                    activeColor: colors.primary,
+                    visualDensity: VisualDensity.compact,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
                 ),
               ),
               horizontalTitleGap: .02.sw,

@@ -5,7 +5,7 @@ import 'package:map_launcher/map_launcher.dart';
 
 import '../constants/constants.dart';
 
-openDialogMapsSheet(double lat,double long) async {
+dynamic openDialogMapsSheet(double lat, double long) async {
   try {
     final coords = Coords(lat, long);
     const title = "Order Address";
@@ -20,10 +20,7 @@ openDialogMapsSheet(double lat,double long) async {
               children: <Widget>[
                 for (var map in availableMaps)
                   ListTile(
-                    onTap: () => map.showMarker(
-                      coords: coords,
-                      title: title,
-                    ),
+                    onTap: () => map.showMarker(coords: coords, title: title),
                     title: Text(map.mapName),
                     leading: SvgPicture.asset(
                       map.icon,

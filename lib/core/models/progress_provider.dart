@@ -104,7 +104,8 @@ class ProgressProvider extends ChangeNotifier {
                     width: 0.90.sw,
                     height: 2.h,
                     decoration: BoxDecoration(
-                      color: colors.surfaceVariant, // ✅ track background
+                      color:
+                          colors.surfaceContainerHighest, // ✅ track background
                       borderRadius: BorderRadius.circular(150.r),
                     ),
                     child: AnimatedContainer(
@@ -113,7 +114,7 @@ class ProgressProvider extends ChangeNotifier {
                       height: 2.h,
                       child: Shimmer.fromColors(
                         baseColor: colors.primary,
-                        highlightColor: colors.primary.withOpacity(0.7),
+                        highlightColor: colors.primary.withValues(alpha: 0.7),
                         direction: ShimmerDirection.ltr,
                         child: Container(
                           width: 0.90.sw * (sent / total),

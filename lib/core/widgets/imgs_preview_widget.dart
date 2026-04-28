@@ -12,11 +12,7 @@ class ImagesPreviewWidget extends StatelessWidget {
   final List<dynamic> images;
   final int? index;
 
-  const ImagesPreviewWidget({
-    required this.images,
-    this.index,
-    super.key,
-  });
+  const ImagesPreviewWidget({required this.images, this.index, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +20,7 @@ class ImagesPreviewWidget extends StatelessWidget {
     final colors = theme.colorScheme;
 
     return Scaffold(
-      backgroundColor: colors.background, // theme-aware background
+      backgroundColor: colors.surface, // theme-aware background
       body: SizedBox(
         width: 1.sw,
         height: 1.sh,
@@ -67,7 +63,7 @@ class ImagesPreviewWidget extends StatelessWidget {
                 margin: EdgeInsets.all(.015.sw),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: colors.onBackground.withOpacity(0.3), // theme-aware
+                  color: colors.onSurface.withValues(alpha: 0.3), // theme-aware
                 ),
                 child: Transform.scale(
                   scale: Constants.isTablet ? 2 : 1,

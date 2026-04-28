@@ -51,7 +51,8 @@ void customAlertDialog({
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color:
-                          color ?? theme.colorScheme.primary.withOpacity(0.1),
+                          color ??
+                          theme.colorScheme.primary.withValues(alpha: 0.1),
                     ),
                     child: image.contains('.svg')
                         ? SvgWidget(svg: image, fit: BoxFit.contain)
@@ -74,7 +75,7 @@ void customAlertDialog({
                     style: AppTextStyles.body.copyWith(
                       color:
                           desColor ??
-                          theme.colorScheme.onSurface.withOpacity(0.7),
+                          theme.colorScheme.onSurface.withValues(alpha: 0.7),
                       height: 1.5,
                     ),
                     textAlign: TextAlign.center,
@@ -120,7 +121,7 @@ void customAlertDialog({
                               borderRadius: BorderRadius.circular(8.r),
                               color:
                                   backCancel ??
-                                  theme.colorScheme.surfaceVariant,
+                                  theme.colorScheme.surfaceContainerHighest,
                             ),
                             child: Text(
                               LanguageProvider.translate('buttons', cancel),

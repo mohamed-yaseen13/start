@@ -8,14 +8,19 @@ import '../helper_function/helper_function.dart';
 import '../helper_function/navigation.dart';
 import '../Theme/app_theme.dart'; // make sure your ThemeX is imported
 
-Future successDialog({var then, String? msg, String? lottie, int? millSec}) async {
+Future successDialog({
+  dynamic then,
+  String? msg,
+  String? lottie,
+  int? millSec,
+}) async {
   bool close = false;
 
   final context = Constants.globalContext();
 
   showModalBottomSheet(
     context: context,
-    backgroundColor: context.colors.surfaceVariant,
+    backgroundColor: context.colors.surfaceContainerHighest,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(36.r)),
     ),
@@ -32,7 +37,7 @@ Future successDialog({var then, String? msg, String? lottie, int? millSec}) asyn
               minHeight: Constants.isTablet ? .50.sh : .35.sh,
             ),
             decoration: BoxDecoration(
-              color: context.colors.surfaceVariant,
+              color: context.colors.surfaceContainerHighest,
               borderRadius: BorderRadius.vertical(top: Radius.circular(36.r)),
             ),
             child: SingleChildScrollView(
@@ -74,4 +79,3 @@ Future successDialog({var then, String? msg, String? lottie, int? millSec}) asyn
     if (!close) navPop();
   });
 }
-

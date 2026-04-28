@@ -41,7 +41,9 @@ class _DraggableImageButtonState extends State<DraggableImageButton> {
             width: .90.sw,
             height: .06.sh,
             decoration: BoxDecoration(
-              color: completed ? colors.primary : colors.surfaceVariant,
+              color: completed
+                  ? colors.primary
+                  : colors.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -89,7 +91,7 @@ class _DraggableImageButtonState extends State<DraggableImageButton> {
                     vertical: .005.sh,
                   ),
                   decoration: BoxDecoration(
-                    color: colors.background,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Icon(

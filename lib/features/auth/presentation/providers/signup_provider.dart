@@ -18,8 +18,8 @@ class SignupProvider extends ChangeNotifier {
   final passwordController = TextEditingController();
   final phoneController = TextEditingController();
   final nameController = TextEditingController();
-  bool isAcceptTerms = false;
 
+  bool isAcceptTerms = false;
   void toggleAcceptTerms() {
     isAcceptTerms = !isAcceptTerms;
     notifyListeners();
@@ -100,7 +100,6 @@ class SignupProvider extends ChangeNotifier {
 
   void submitSignupForm() {
     String nameError = '';
-
     for (var element in signupInputs) {
       if (!formKey.currentState!.validate()) {
         String? error = element.validator!(element.controller.text);

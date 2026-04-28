@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:start/core/Theme/app_color.dart';
 import '../../features/language/presentation/provider/language_provider.dart';
 import '../constants/constants.dart';
 import '../models/text_field_model.dart';
@@ -32,7 +33,7 @@ class ListTextFieldWidget extends StatelessWidget {
     final colors = theme.colorScheme;
     final defaultTextStyle = style ?? theme.textTheme.bodyMedium;
 
-    List telInputs = ['phone', 'whats','whatsapp'];
+    List telInputs = ['phone', 'whats', 'whatsapp'];
 
     return SizedBox(
       width: double.infinity,
@@ -40,7 +41,7 @@ class ListTextFieldWidget extends StatelessWidget {
         alignment: WrapAlignment.spaceBetween,
         children: List.generate(inputs.length, (index) {
           final input = inputs[index];
-          final finalTextColor = textColor ?? colors.onBackground;
+          final finalTextColor = textColor ?? colors.onSurface;
 
           return TextFieldWidget(
             borderRadius: borderRadius ?? .03.sw,
@@ -90,8 +91,8 @@ class ListTextFieldWidget extends StatelessWidget {
                 );
               },
             ),
-            color: color ?? colors.surface,
-            borderColor: borderColor ?? colors.primary,
+            color: color ?? AppColor.mainColor,
+            borderColor: borderColor ?? AppColor.secondaryGray2,
             isLabel: input.isLabel ?? false,
             maxLength: telInputs.contains(input.key) ? 10 : null,
             controller: input.controller,
@@ -103,12 +104,11 @@ class ListTextFieldWidget extends StatelessWidget {
             maxLines: input.max,
             validator: input.validator,
             obscureText: input.obscureText,
-            suffix:  input.suffix,
+            suffix: input.suffix,
             prefix: input.prefix,
             readOnly: input.readOnly,
             width: input.width,
             contentPadding: input.contentPadding,
-
           );
         }),
       ),

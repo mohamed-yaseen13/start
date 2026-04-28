@@ -121,7 +121,7 @@ class _AddImagePageState extends State<AddImagePage> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: true,
-      onPopInvokedWithResult: (_, __) => _controller?.dispose(),
+      onPopInvokedWithResult: (_, _) => _controller?.dispose(),
       child: Scaffold(
         body: AnnotatedRegion(
           value: AppSystemUi.light(),
@@ -152,9 +152,8 @@ class _AddImagePageState extends State<AddImagePage> {
                   top: .08.sh,
                   start: .03.sw,
                   child: CircleAvatar(
-                    backgroundColor: context.colors.surfaceVariant.withOpacity(
-                      0.3,
-                    ),
+                    backgroundColor: context.colors.surfaceContainerHighest
+                        .withValues(alpha: 0.3),
                     child: BackButton(
                       color: context.colors.primary,
                       onPressed: () {
@@ -227,7 +226,8 @@ class _AddImagePageState extends State<AddImagePage> {
                         top: false,
                         bottom: true,
                         child: Container(
-                          color: context.colors.surfaceVariant.withOpacity(0.5),
+                          color: context.colors.surfaceContainerHighest
+                              .withValues(alpha: 0.5),
                           padding: EdgeInsets.symmetric(
                             horizontal: .05.sw,
                             vertical: .00.sh,
