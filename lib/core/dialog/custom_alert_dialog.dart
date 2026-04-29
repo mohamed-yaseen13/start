@@ -4,7 +4,6 @@ import 'package:start/core/Theme/app_theme.dart';
 import '../../features/language/presentation/provider/language_provider.dart';
 import '../constants/constants.dart';
 import '../widgets/svg_widget.dart';
-import '../theme/app_text_styles.dart';
 
 void customAlertDialog({
   String? image,
@@ -64,7 +63,7 @@ void customAlertDialog({
                 children: [
                   Text(
                     LanguageProvider.translate('warning', title),
-                    style: AppTextStyles.title.copyWith(
+                    style: context.text.titleMedium!.copyWith(
                       color: theme.colorScheme.onSurface,
                     ),
                     textAlign: TextAlign.center,
@@ -72,7 +71,7 @@ void customAlertDialog({
                   SizedBox(height: 0.05.sh),
                   Text(
                     LanguageProvider.translate('warning', content),
-                    style: AppTextStyles.body.copyWith(
+                    style: context.text.bodyMedium!.copyWith(
                       color:
                           desColor ??
                           theme.colorScheme.onSurface.withValues(alpha: 0.7),
@@ -98,7 +97,7 @@ void customAlertDialog({
                               ),
                               child: Text(
                                 LanguageProvider.translate('buttons', confirm),
-                                style: AppTextStyles.body.copyWith(
+                                style: context.text.bodyMedium!.copyWith(
                                   color:
                                       confirmTextColor ??
                                       theme.colorScheme.onPrimary,
@@ -125,7 +124,7 @@ void customAlertDialog({
                             ),
                             child: Text(
                               LanguageProvider.translate('buttons', cancel),
-                              style: AppTextStyles.body.copyWith(
+                              style: context.text.bodyMedium!.copyWith(
                                 color:
                                     cancelTextColor ??
                                     theme.colorScheme.onSurface,

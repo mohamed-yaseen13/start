@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:start/core/Theme/app_color.dart';
-import 'package:start/core/Theme/app_text_styles.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 
 class DividerWidget extends StatelessWidget {
@@ -13,7 +12,7 @@ class DividerWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            color: AppColor.secondaryGray2,
+            color: context.colors.tertiary,
             thickness: 1,
             height: 0,
           ),
@@ -22,15 +21,15 @@ class DividerWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: Text(
             LanguageProvider.translate('global', 'or'),
-            style: AppTextStyles.title.copyWith(
+            style: context.text.titleMedium!.copyWith(
               fontSize: 10.sp,
-              color: AppColor.secondaryGray2,
+              color: context.colors.tertiary,
             ),
           ),
         ),
         Expanded(
           child: Divider(
-            color: AppColor.secondaryGray2,
+            color: context.colors.tertiary,
             thickness: 1,
             height: 0,
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:start/core/Theme/app_color.dart';
-import 'package:start/core/Theme/app_text_styles.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 import 'package:start/features/onboarding/domain/entities/onboarding_entity.dart';
 
@@ -31,7 +30,7 @@ class OnboardingDetailsWidget extends StatelessWidget {
                     borderRadius: 90.r,
                     imagePath: entity.imageBottom,
                     colorFilter: ColorFilter.mode(
-                      AppColor.primaryDarkBlue.withAlpha(100),
+                      context.colors.primary.withAlpha(100),
                       BlendMode.srcATop,
                     ),
                   ),
@@ -56,7 +55,7 @@ class OnboardingDetailsWidget extends StatelessWidget {
             child: Text(
               LanguageProvider.translate('onboarding', entity.title),
               textAlign: TextAlign.center,
-              style: AppTextStyles.headline.copyWith(
+              style: context.text.headlineLarge!.copyWith(
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -65,7 +64,7 @@ class OnboardingDetailsWidget extends StatelessWidget {
           Text(
             LanguageProvider.translate('onboarding', entity.subtitle),
             textAlign: TextAlign.center,
-            style: AppTextStyles.caption,
+            style: context.text.bodySmall,
           ),
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:start/core/Theme/app_color.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import '../providers/onboarding_provider.dart';
 
 class OnboardingBotsWidget extends StatelessWidget {
@@ -20,8 +20,8 @@ class OnboardingBotsWidget extends StatelessWidget {
           width: provider.currentPage == index ? 28.w : 10.w,
           decoration: BoxDecoration(
             color: provider.currentPage == index
-                ? AppColor.primaryDarkBlue
-                : AppColor.secondaryGray2,
+                ? context.colors.primary
+                : context.colors.tertiary,
             borderRadius: BorderRadius.circular(16.r),
           ),
         ),

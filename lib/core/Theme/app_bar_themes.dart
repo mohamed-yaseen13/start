@@ -12,7 +12,7 @@ final AppBarTheme lightAppBarTheme = AppBarTheme(
     color: Colors.black, // or context.colors.onPrimary
   ),
   systemOverlayStyle: AppSystemUi.light(),
-  surfaceTintColor: AppColor.mainColor,
+  surfaceTintColor: AppColor.scaffoldBackgroundColor,
 );
 
 final AppBarTheme darkAppBarTheme = AppBarTheme(

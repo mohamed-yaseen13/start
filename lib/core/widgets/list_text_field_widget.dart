@@ -91,8 +91,8 @@ class ListTextFieldWidget extends StatelessWidget {
                 );
               },
             ),
-            color: color ?? AppColor.mainColor,
-            borderColor: borderColor ?? AppColor.secondaryGray2,
+            color: color ?? AppColor.scaffoldBackgroundColor,
+            borderColor: borderColor ?? colors.tertiary,
             isLabel: input.isLabel ?? false,
             maxLength: telInputs.contains(input.key) ? 10 : null,
             controller: input.controller,

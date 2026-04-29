@@ -20,23 +20,28 @@ class ForgotPasswordPage extends StatelessWidget {
       appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              LanguageProvider.translate('login', 'forgot_password'),
-              style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
-            ),
-            SizedBox(height: 12.h),
-            Text(
-              LanguageProvider.translate('forgot_password', 'forgot_password'),
-              style: context.text.bodyMedium!.copyWith(
-                color: context.colors.tertiary,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                LanguageProvider.translate('login', 'forgot_password'),
+                style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
               ),
-            ),
-            SizedBox(height: 32.h),
-            ForgotPasswordFormWidget(),
-          ],
+              SizedBox(height: 12.h),
+              Text(
+                LanguageProvider.translate(
+                  'forgot_password',
+                  'forgot_password',
+                ),
+                style: context.text.bodyMedium!.copyWith(
+                  color: context.colors.secondary,
+                ),
+              ),
+              SizedBox(height: 32.h),
+              ForgotPasswordFormWidget(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(

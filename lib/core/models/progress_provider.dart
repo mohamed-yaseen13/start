@@ -4,7 +4,6 @@ import 'package:shimmer/shimmer.dart';
 import '../../features/language/presentation/provider/language_provider.dart';
 import '../constants/constants.dart';
 import '../helper_function/api.dart';
-import '../theme/app_text_styles.dart';
 import '../theme/app_theme.dart';
 
 class ProgressProvider extends ChangeNotifier {
@@ -61,7 +60,7 @@ class ProgressProvider extends ChangeNotifier {
                     children: [
                       Text(
                         LanguageProvider.translate('global', 'loading'),
-                        style: AppTextStyles.title.copyWith(
+                        style: context.text.titleMedium!.copyWith(
                           color: colors.onSurface,
                         ),
                       ),
@@ -74,7 +73,7 @@ class ProgressProvider extends ChangeNotifier {
                         },
                         child: Text(
                           LanguageProvider.translate('buttons', 'cancel'),
-                          style: AppTextStyles.body.copyWith(
+                          style: context.text.bodyMedium!.copyWith(
                             color: colors.error,
                           ),
                         ),
@@ -90,7 +89,7 @@ class ProgressProvider extends ChangeNotifier {
                     children: [
                       Text(
                         '$progress %',
-                        style: AppTextStyles.body.copyWith(
+                        style: context.text.bodyMedium!.copyWith(
                           color: colors.primary,
                         ),
                       ),

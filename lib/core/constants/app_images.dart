@@ -22,4 +22,5 @@ class AppImages {
   static const String authTopImage = 'assets/images/auth/auth_top_image.svg';
   static const String appleIcon = 'assets/images/auth/apple_icon.svg';
   static const String googleIcon = 'assets/images/auth/google_icon.svg';
+  static const String timerIcon = 'assets/images/auth/timer_icon.svg';
 }

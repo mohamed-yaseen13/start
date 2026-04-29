@@ -44,7 +44,7 @@ class SignupFormWidget extends StatelessWidget {
             conditions: [
               {
                 "value": signup.isAcceptTerms == false,
-                "text": "يجب الموافقة علي الشروط",
+                "text": "يجب الموافقة علي الشروط", // TODO: translate
               },
             ],
           ),

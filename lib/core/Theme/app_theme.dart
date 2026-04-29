@@ -22,16 +22,16 @@ class AppTheme {
     fontFamily: "DIN",
 
     colorScheme: ColorScheme.light(
-      primary: AppColor.primaryDarkBlue,
+      primary: AppColor.primaryColor,
       onPrimary: Colors.white,
       surface: Colors.white,
       onSurface: Colors.black,
+      secondary: AppColor.secondaryColor,
+      tertiary: AppColor.tertiaryColor,
       surfaceContainerHighest: Colors.grey.shade100, // cards, sheets
-      secondary: AppColor.secondaryGray4,
-      tertiary: AppColor.secondaryGray2,
     ),
 
-    scaffoldBackgroundColor: AppColor.mainColor,
+    scaffoldBackgroundColor: AppColor.scaffoldBackgroundColor,
 
     dividerColor: Colors.transparent,
 
@@ -74,9 +74,9 @@ class AppTheme {
       surfaceContainerHighest:
           Colors.grey.shade900, // dark variant for cards/sheets
       secondary:
-          AppColor.secondaryGray4, // to be updated to activate the dark theme
+          AppColor.secondaryColor, // to be updated to activate the dark theme
       tertiary:
-          AppColor.secondaryGray2, // to be updated to activate the dark theme
+          AppColor.tertiaryColor, // to be updated to activate the dark theme
     ),
 
     scaffoldBackgroundColor: Colors.black,

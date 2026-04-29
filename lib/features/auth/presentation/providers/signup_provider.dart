@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:start/core/Theme/app_text_styles.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/constants/constants.dart';
 import 'package:start/core/dialog/snack_bar.dart';
 import 'package:start/core/helper_function/helper_function.dart';
@@ -37,7 +37,9 @@ class SignupProvider extends ChangeNotifier {
       controller: phoneController,
       title: Text(
         LanguageProvider.translate('auth', "phone_number"),
-        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+        style: Constants.globalContext().text.titleMedium!.copyWith(
+          fontSize: 14.sp,
+        ),
       ),
       textInputType: TextInputType.phone,
       validator: (value) => validatePhone(value!),
@@ -48,7 +50,9 @@ class SignupProvider extends ChangeNotifier {
       controller: nameController,
       title: Text(
         LanguageProvider.translate('signup', "user_name"),
-        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+        style: Constants.globalContext().text.titleMedium!.copyWith(
+          fontSize: 14.sp,
+        ),
       ),
       validator: (value) => validateFirstName(value!),
       next: true,
@@ -57,7 +61,9 @@ class SignupProvider extends ChangeNotifier {
       key: "password",
       title: Text(
         LanguageProvider.translate('auth', "password"),
-        style: AppTextStyles.title.copyWith(fontSize: 14.sp),
+        style: Constants.globalContext().text.titleMedium!.copyWith(
+          fontSize: 14.sp,
+        ),
       ),
       controller: passwordController,
       validator: (value) => validatePassword(value!),
@@ -107,6 +113,9 @@ class SignupProvider extends ChangeNotifier {
           nameError += '$error\n';
         }
       }
+    }
+    if (isAcceptTerms == false) {
+      nameError += "يجب الموافقة علي الشروط"; // TODO: translate
     }
     if (nameError.isEmpty) {
       signupButton();
