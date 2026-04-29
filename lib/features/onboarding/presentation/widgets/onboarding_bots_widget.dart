@@ -9,7 +9,7 @@ class OnboardingBotsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<OnboardingProvider>(context, listen: true);
+    final provider = context.watch<OnboardingProvider>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(

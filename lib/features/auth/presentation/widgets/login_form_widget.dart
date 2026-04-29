@@ -12,7 +12,7 @@ class LoginFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginProvider login = Provider.of<LoginProvider>(context);
+    final login = context.watch<LoginProvider>();
     return Form(
       key: login.formKey,
       child: Column(

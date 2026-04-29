@@ -8,7 +8,7 @@ class OnboardingPageViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<OnboardingProvider>(context, listen: false);
+    final provider = context.watch<OnboardingProvider>();
     return PageView.builder(
       controller: provider.pageController,
       onPageChanged: (page) {

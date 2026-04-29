@@ -8,9 +8,7 @@ class ForgotPasswordFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordProvider forgotPassword = Provider.of<ForgotPasswordProvider>(
-      context,
-    );
+    final forgotPassword = context.watch<ForgotPasswordProvider>();
 
     return Form(
       key: forgotPassword.formKey,

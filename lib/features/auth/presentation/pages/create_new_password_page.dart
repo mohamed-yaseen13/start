@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/button_widget.dart';
-import 'package:start/features/auth/presentation/providers/forgot_password_provider.dart';
-import 'package:start/features/auth/presentation/widgets/forgot_password_form_widget.dart';
+import 'package:start/features/auth/presentation/providers/create_new_password_provider.dart';
+import 'package:start/features/auth/presentation/widgets/create_new_password_form_widget.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+class CreateNewPasswordPage extends StatelessWidget {
+  const CreateNewPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final forgotPassword = context.watch<ForgotPasswordProvider>();
+    final createNewPassword = context.watch<CreateNewPasswordProvider>();
 
     return Scaffold(
       appBar: AppBar(),
@@ -23,21 +23,21 @@ class ForgotPasswordPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                LanguageProvider.translate('login', 'forgot_password'),
+                LanguageProvider.translate(
+                  'new_password',
+                  'create_new_password',
+                ),
                 style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 24.h),
               Text(
-                LanguageProvider.translate(
-                  'forgot_password',
-                  'forgot_password',
-                ),
+                LanguageProvider.translate('new_password', 'new_password_text'),
                 style: context.text.bodyMedium!.copyWith(
                   color: context.colors.secondary,
                 ),
               ),
-              SizedBox(height: 32.h),
-              ForgotPasswordFormWidget(),
+              SizedBox(height: 48.h),
+              CreateNewPasswordFormWidget(),
             ],
           ),
         ),
@@ -50,9 +50,9 @@ class ForgotPasswordPage extends StatelessWidget {
             ButtonWidget(
               onTap: () {
                 FocusScope.of(context).unfocus();
-                forgotPassword.submitForgotPasswordForm();
+                createNewPassword.submitCreateNewPasswordForm();
               },
-              text: 'continue',
+              text: 'change_password',
             ),
           ],
         ),

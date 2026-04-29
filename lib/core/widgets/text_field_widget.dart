@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:start/core/Theme/app_theme.dart';
 import '../../features/language/presentation/provider/language_provider.dart';
 import '../constants/constants.dart';
 
@@ -152,7 +153,7 @@ class TextFieldWidget extends StatelessWidget {
       fillColor: color ?? theme.inputDecorationTheme.fillColor ?? Colors.white,
       filled: true,
       hintStyle: theme.textTheme.bodyMedium?.copyWith(
-        color: hintColor ?? theme.hintColor,
+        color: hintColor ?? Constants.globalContext().colors.secondary,
         height: 1.2,
       ),
       labelStyle: theme.textTheme.bodySmall?.copyWith(

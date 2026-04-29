@@ -6,7 +6,7 @@ import 'package:start/core/helper_function/helper_function.dart';
 import 'package:start/core/helper_function/loading.dart';
 import 'package:start/core/helper_function/navigation.dart';
 import 'package:start/features/auth/presentation/pages/otp_page.dart';
-import 'package:start/features/start/providers/start_provider.dart';
+import 'package:start/features/auth/presentation/providers/create_new_password_provider.dart';
 
 class OtpProvider extends ChangeNotifier {
   // final UserUseCases authUseCase;
@@ -73,11 +73,7 @@ class OtpProvider extends ChangeNotifier {
     // final result = await authUseCase.checkCode(data);
     await delay(300);
     navPopLoading();
-    Provider.of<StartProvider>(
-      // TODO : create new password provider go to
-      Constants.globalContext(),
-      listen: false,
-    ).goToPage();
+    Constants.globalContext().read<CreateNewPasswordProvider>().goTo();
     // result.fold((l) => showToast(l.message!), (r) {
     //   final profile = Provider.of<ProfileProvider>(
     //     Constants.globalContext(),

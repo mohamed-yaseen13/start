@@ -63,7 +63,7 @@ class LoginProvider extends ChangeNotifier {
     ),
   ];
 
-  void goToPage() {
+  void goTo() {
     navPARU(LoginPage());
   }
 
@@ -79,10 +79,7 @@ class LoginProvider extends ChangeNotifier {
     await delay(3000); // i added this [ mohamed yaseen ] just for test
     // Either<DioException, UserEntity> login = await UserUseCases(sl()).login(data);
     navPopLoading();
-    Provider.of<StartProvider>(
-      Constants.globalContext(),
-      listen: false,
-    ).goToPage();
+    Constants.globalContext().read<StartProvider>().goToPage();
     // login.fold((l) {
     //   showToast(l.message!);
     // }, (r) async {

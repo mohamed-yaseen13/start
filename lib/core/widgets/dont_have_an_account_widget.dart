@@ -11,7 +11,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Provider.of<SignupProvider>(context, listen: false).goToPage();
+        Provider.of<SignupProvider>(context, listen: false).goTo();
       },
       child: Text(
         LanguageProvider.translate('login', 'dont_have_an_account'),

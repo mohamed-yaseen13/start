@@ -12,9 +12,8 @@ class RememberMeAndForgotPasswordRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginProvider login = Provider.of<LoginProvider>(context);
+    final login = context.watch<LoginProvider>();
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CheckBoxWidget(
           width: 16.w,
@@ -24,6 +23,9 @@ class RememberMeAndForgotPasswordRowWidget extends StatelessWidget {
             login.toggleRememberMe();
           },
         ),
+        SizedBox(width: 8.w),
+        Text(LanguageProvider.translate('login', 'remember_me')),
+        Spacer(),
         GestureDetector(
           onTap: () {
             Provider.of<ForgotPasswordProvider>(context, listen: false).goTo();

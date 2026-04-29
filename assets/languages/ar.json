@@ -15,7 +15,8 @@
     "hi": "مرحبًا بعودتك !",
     "login_text": "سجّل الدخول باستخدام رقم الهاتف وكلمة المرور\nأو حسابك على وسائل التواصل الاجتماعي للمتابعة",
     "forgot_password": "هل نسيت كلمة السر ؟",
-    "dont_have_an_account": "ليس لديك حساب؟ سجل الآن"
+    "dont_have_an_account": "ليس لديك حساب؟ سجل الآن",
+    "remember_me": "تذكرنى"
   },
   "signup": {
     "title": "سجل حسابًا",
@@ -37,7 +38,8 @@
     "login" : "تسجيل الدخول",
     "signup": "انشاء حساب",
     "continue": "اكمل",
-    "verify": "تأكيد"
+    "verify": "تأكيد",
+    "change_password": "تغيير كلمة المرور"
   },
   "otp": {
     "enter_otp": "ادخل رمز التحقق",
@@ -45,11 +47,20 @@
     "dont_receive_otp": "لم تستلم رمز التحقق ؟",
     "resend_otp": "أعد إرسال رمز التحقق لمرة واحدة"
   },
+  "new_password": {
+    "create_new_password": "إنشاء كلمة مرور جديدة",
+    "new_password_text": "الرجاء إدخال كلمة مرور جديدة\nللتغيير",
+    "new_password": "كلمة المرور الجديدة",
+    "confirm_new_password": "تأكيد كلمة المرور"
+  },
   "validation": {
     "phone_required": "من فضلك أدخل رقم هاتفك",
     "phone_invalid": "رقم الهاتف غير صالح",
     "password_required": "من فضلك أدخل كلمة المرور",
-    "first_name": "من فضلك أدخل اسم المستخدم"
+    "first_name": "من فضلك أدخل اسم المستخدم",
+    "otp_invalid": "برجاء إدخال الكود",
+    "terms": "يجب الموافقة علي الشروط",
+    "confirm_password": "كلمة المرور غير مطابقة"
   },
   "error": {
     "error": "خطأ"

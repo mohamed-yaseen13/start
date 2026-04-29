@@ -10,7 +10,7 @@ class OnboardingBottomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<OnboardingProvider>(context, listen: true);
+    final provider = context.watch<OnboardingProvider>();
     return ButtonWidget(
       height: 55.h,
       onTap: provider.nextPage,

@@ -54,10 +54,7 @@ class OnboardingProvider extends ChangeNotifier {
 
   void finishOnboarding() async {
     await setIsFirstTime(false);
-    Provider.of<LoginProvider>(
-      Constants.globalContext(),
-      listen: false,
-    ).goToPage();
+    Constants.globalContext().read<LoginProvider>().goTo();
   }
 
   void goToPage() {

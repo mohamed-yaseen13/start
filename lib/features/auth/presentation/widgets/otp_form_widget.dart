@@ -7,13 +7,14 @@ import 'package:start/core/widgets/validation_widget.dart';
 import 'package:start/features/auth/presentation/providers/otp_provider.dart';
 import 'package:pinput/pinput.dart';
 import 'package:start/features/auth/presentation/widgets/timer_widget.dart';
+import 'package:start/features/language/presentation/provider/language_provider.dart';
 
 class OtpFormWidget extends StatelessWidget {
   const OtpFormWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final OtpProvider otp = Provider.of<OtpProvider>(context, listen: true);
+    final otp = context.watch<OtpProvider>();
     final defaultPinTheme = PinTheme(
       width: 90.w,
       height: 70.h,
@@ -52,7 +53,7 @@ class OtpFormWidget extends StatelessWidget {
             conditions: [
               {
                 'value': otp.otpCode.length != 4,
-                'text': "برجاء إدخال الكود", // TODO: translate
+                'text': LanguageProvider.translate('validation', 'otp_invalid'),
               },
             ],
           ),

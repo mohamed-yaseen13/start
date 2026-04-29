@@ -12,7 +12,7 @@ class AlreadyHaveAnAccountWidget extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTap: () {
-          Provider.of<LoginProvider>(context, listen: false).goToPage();
+          Provider.of<LoginProvider>(context, listen: false).goTo();
         },
         child: Text(
           LanguageProvider.translate('signup', 'already_have_an_account'),

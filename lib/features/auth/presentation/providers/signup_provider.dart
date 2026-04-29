@@ -76,7 +76,7 @@ class SignupProvider extends ChangeNotifier {
     ),
   ];
 
-  void goToPage() {
+  void goTo() {
     navP(SignupPage());
   }
 
@@ -92,10 +92,7 @@ class SignupProvider extends ChangeNotifier {
     await delay(3000); // i added this [ mohamed yaseen ] just for test
     // Either<DioException, UserEntity> login = await UserUseCases(sl()).login(data);
     navPopLoading();
-    Provider.of<StartProvider>(
-      Constants.globalContext(),
-      listen: false,
-    ).goToPage();
+    Constants.globalContext().read<StartProvider>().goToPage();
     // login.fold((l) {
     //   showToast(l.message!);
     // }, (r) async {
@@ -115,7 +112,7 @@ class SignupProvider extends ChangeNotifier {
       }
     }
     if (isAcceptTerms == false) {
-      nameError += "يجب الموافقة علي الشروط"; // TODO: translate
+      nameError += LanguageProvider.translate('validation', 'terms');
     }
     if (nameError.isEmpty) {
       signupButton();

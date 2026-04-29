@@ -12,7 +12,7 @@ class OtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final OtpProvider otp = Provider.of<OtpProvider>(context);
+    final otp = context.watch<OtpProvider>();
 
     return Scaffold(
       appBar: AppBar(),

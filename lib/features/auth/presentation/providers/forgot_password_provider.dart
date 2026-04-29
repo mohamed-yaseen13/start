@@ -44,7 +44,7 @@ class ForgotPasswordProvider extends ChangeNotifier {
     await delay(3000); // i added this [ mohamed yaseen ] just for test
     // Either<DioException, UserEntity> login = await UserUseCases(sl()).login(data);
     navPopLoading();
-    Provider.of<OtpProvider>(Constants.globalContext(), listen: false).goTo();
+    Constants.globalContext().read<OtpProvider>().goTo();
     // login.fold((l) {
     //   showToast(l.message!);
     // }, (r) async {

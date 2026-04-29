@@ -14,7 +14,7 @@ class SignupFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupProvider signup = Provider.of<SignupProvider>(context);
+    final signup = context.watch<SignupProvider>();
 
     return Form(
       key: signup.formKey,
@@ -44,7 +44,7 @@ class SignupFormWidget extends StatelessWidget {
             conditions: [
               {
                 "value": signup.isAcceptTerms == false,
-                "text": "يجب الموافقة علي الشروط", // TODO: translate
+                "text": LanguageProvider.translate('validation', 'terms'),
               },
             ],
           ),
