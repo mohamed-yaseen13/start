@@ -39,7 +39,8 @@
     "signup": "انشاء حساب",
     "continue": "اكمل",
     "verify": "تأكيد",
-    "change_password": "تغيير كلمة المرور"
+    "change_password": "تغيير كلمة المرور",
+    "go_to_signup_page": "اذهب لصفحه تسجيل الدخول"
   },
   "otp": {
     "enter_otp": "ادخل رمز التحقق",
@@ -51,7 +52,9 @@
     "create_new_password": "إنشاء كلمة مرور جديدة",
     "new_password_text": "الرجاء إدخال كلمة مرور جديدة\nللتغيير",
     "new_password": "كلمة المرور الجديدة",
-    "confirm_new_password": "تأكيد كلمة المرور"
+    "confirm_new_password": "تأكيد كلمة المرور",
+    "new_password_success": "تم تغيير كلمه المرور بنجاح!",
+    "new_password_success_text": "تم تغيير كلمة مرورك. يرجى تسجيل الدخول مرة أخرى باستخدام كلمة مرور جديدة."
   },
   "validation": {
     "phone_required": "من فضلك أدخل رقم هاتفك",

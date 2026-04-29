@@ -23,4 +23,6 @@ class AppImages {
   static const String appleIcon = 'assets/images/auth/apple_icon.svg';
   static const String googleIcon = 'assets/images/auth/google_icon.svg';
   static const String timerIcon = 'assets/images/auth/timer_icon.svg';
+  static const String createNewPasswordSuccessImage =
+      'assets/images/auth/create_new_password_success_image.svg';
 }
