@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/already_have_an_account_widget.dart';
 import 'package:start/core/widgets/divider_widget.dart';
-import 'package:start/features/auth/presentation/widgets/login_with_social_widget.dart';
-import 'package:start/features/auth/presentation/widgets/signup_form_widget.dart';
-import 'package:start/features/language/presentation/provider/language_provider.dart';
+import 'package:start/features/auth/presentation/widgets/header_widget.dart';
+import 'package:start/features/auth/presentation/widgets/login/login_with_social_widget.dart';
+import 'package:start/features/auth/presentation/widgets/signup/signup_form_widget.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -20,17 +19,7 @@ class SignupPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                LanguageProvider.translate('signup', 'title'),
-                style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
-              ),
-              SizedBox(height: 12.h),
-              Text(
-                LanguageProvider.translate('signup', 'signup_text'),
-                style: context.text.bodyMedium!.copyWith(
-                  color: context.colors.secondary,
-                ),
-              ),
+              HeaderWidget(title: 'title', decs: 'signup_text'),
               SizedBox(height: 24.h),
               SignupFormWidget(),
               SizedBox(height: 24.h),

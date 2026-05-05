@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/button_widget.dart';
+import 'package:start/features/auth/presentation/providers/create_new_password_operations.dart';
 import 'package:start/features/auth/presentation/providers/create_new_password_provider.dart';
-import 'package:start/features/auth/presentation/widgets/create_new_password_form_widget.dart';
-import 'package:start/features/language/presentation/provider/language_provider.dart';
+import 'package:start/features/auth/presentation/widgets/create_new_password/create_new_password_form_widget.dart';
+import 'package:start/features/auth/presentation/widgets/header_widget.dart';
 
 class CreateNewPasswordPage extends StatelessWidget {
   const CreateNewPasswordPage({super.key});
@@ -22,19 +22,9 @@ class CreateNewPasswordPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                LanguageProvider.translate(
-                  'new_password',
-                  'create_new_password',
-                ),
-                style: context.text.titleMedium!.copyWith(fontSize: 20.sp),
-              ),
-              SizedBox(height: 24.h),
-              Text(
-                LanguageProvider.translate('new_password', 'new_password_text'),
-                style: context.text.bodyMedium!.copyWith(
-                  color: context.colors.secondary,
-                ),
+              HeaderWidget(
+                title: 'create_new_password',
+                decs: 'new_password_text',
               ),
               SizedBox(height: 48.h),
               CreateNewPasswordFormWidget(),

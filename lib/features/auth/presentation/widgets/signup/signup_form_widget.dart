@@ -6,6 +6,7 @@ import 'package:start/core/widgets/button_widget.dart';
 import 'package:start/core/widgets/checkbox_widget.dart';
 import 'package:start/core/widgets/list_text_field_widget.dart';
 import 'package:start/core/widgets/validation_widget.dart';
+import 'package:start/features/auth/presentation/providers/signup_operations.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 
@@ -42,10 +43,7 @@ class SignupFormWidget extends StatelessWidget {
           ),
           ValidationWidget(
             conditions: [
-              {
-                "value": signup.isAcceptTerms == false,
-                "text": LanguageProvider.translate('validation', 'terms'),
-              },
+              {"value": signup.isAcceptTerms == false, "text": 'terms'},
             ],
           ),
           SizedBox(height: 24.h),

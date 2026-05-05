@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:start/features/language/presentation/provider/language_provider.dart';
 
 class ValidationWidget extends StatelessWidget {
   const ValidationWidget({super.key, required this.conditions, this.child});
@@ -14,7 +15,9 @@ class ValidationWidget extends StatelessWidget {
     return FormField(
       validator: (_) {
         for (var condition in conditions) {
-          if (condition['value'] == true) return condition['text'];
+          if (condition['value'] == true) {
+            return LanguageProvider.translate('validation', condition['text']);
+          }
         }
         return null;
       },
@@ -37,6 +40,7 @@ class ValidationWidget extends StatelessWidget {
     );
   }
 }
+
 // class Example extends StatelessWidget {
 //   const Example({super.key});
 //

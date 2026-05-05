@@ -6,8 +6,7 @@ import 'package:start/core/helper_function/convert.dart';
 import 'package:start/core/widgets/validation_widget.dart';
 import 'package:start/features/auth/presentation/providers/otp_provider.dart';
 import 'package:pinput/pinput.dart';
-import 'package:start/features/auth/presentation/widgets/timer_widget.dart';
-import 'package:start/features/language/presentation/provider/language_provider.dart';
+import 'package:start/features/auth/presentation/widgets/otp/timer_widget.dart';
 
 class OtpFormWidget extends StatelessWidget {
   const OtpFormWidget({super.key});
@@ -36,6 +35,7 @@ class OtpFormWidget extends StatelessWidget {
           Directionality(
             textDirection: TextDirection.ltr,
             child: Pinput(
+              autofocus: true,
               length: 4,
               defaultPinTheme: defaultPinTheme,
               focusedPinTheme: defaultPinTheme.copyWith(
@@ -46,14 +46,15 @@ class OtpFormWidget extends StatelessWidget {
               ),
               separatorBuilder: (index) => SizedBox(width: 10.w),
               animationDuration: const Duration(milliseconds: 300),
-              onCompleted: (v) => otp.getOtp(v),
+              onCompleted: (v) => otp.otpController.text = v,
+              controller: otp.otpController,
             ),
           ),
           ValidationWidget(
             conditions: [
               {
-                'value': otp.otpCode.length != 4,
-                'text': LanguageProvider.translate('validation', 'otp_invalid'),
+                'value': otp.otpController.text.length != 4,
+                'text': 'otp_invalid',
               },
             ],
           ),
