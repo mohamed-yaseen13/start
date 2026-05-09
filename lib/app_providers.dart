@@ -8,6 +8,7 @@ import 'package:start/features/auth/presentation/providers/login_provider.dart';
 import 'package:start/features/auth/presentation/providers/otp_provider.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
+import 'package:start/features/nav/presentation/providers/nav_provider.dart';
 import 'package:start/features/onboarding/presentation/providers/onboarding_provider.dart';
 import 'package:start/features/splash_screen/presentation/provider/splash_provider.dart';
 import 'package:start/features/start/providers/start_provider.dart';
@@ -31,6 +32,7 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
         ChangeNotifierProvider(create: (_) => OtpProvider()),
         ChangeNotifierProvider(create: (_) => CreateNewPasswordProvider()),
+        ChangeNotifierProvider(create: (_) => NavProvider()),
       ],
       child: child,
     );

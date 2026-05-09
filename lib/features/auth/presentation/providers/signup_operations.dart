@@ -10,7 +10,7 @@ import 'package:start/core/helper_function/text_form_field_validation.dart';
 import 'package:start/core/models/text_field_model.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
-import 'package:start/features/start/providers/start_provider.dart';
+import 'package:start/features/nav/presentation/providers/nav_provider.dart';
 
 extension SignupOperations on SignupProvider {
   void toggleAcceptTerms() {
@@ -109,7 +109,7 @@ extension SignupOperations on SignupProvider {
     await delay(3000); // i added this [ mohamed yaseen ] just for test
     // Either<DioException, UserEntity> login = await UserUseCases(sl()).login(data);
     navPopLoading();
-    Constants.globalContext().read<StartProvider>().goToPage();
+    Constants.globalContext().read<NavProvider>().goToPage();
     // login.fold((l) {
     //   showToast(l.message!);
     // }, (r) async {

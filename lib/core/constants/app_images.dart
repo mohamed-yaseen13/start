@@ -25,4 +25,10 @@ class AppImages {
   static const String timerIcon = 'assets/images/auth/timer_icon.svg';
   static const String createNewPasswordSuccessImage =
       'assets/images/auth/create_new_password_success_image.svg';
+
+  // home
+  static const String navHomeIcon = 'assets/images/home/home_icon.svg';
+  static const String navBookIcon = 'assets/images/home/book_icon.svg';
+  static const String navFavoriteIcon = 'assets/images/home/favorite_icon.svg';
+  static const String navUserIcon = 'assets/images/home/user_icon.svg';
 }
