@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.0.2
+  dotted_border: ^3.1.0
   equatable: ^2.0.7
   firebase_core: ^3.15.1
   firebase_messaging: ^15.2.9
@@ -105,6 +106,7 @@ flutter:
   assets:
     - assets/images/logo/
     - assets/images/home/
+    - assets/images/add_estate/
     - assets/images/onboarding/
     - assets/images/auth/
     - assets/lotties/

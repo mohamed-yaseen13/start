@@ -64,7 +64,8 @@
     "first_name": "من فضلك أدخل اسم المستخدم",
     "otp_invalid": "برجاء إدخال الكود",
     "terms": "يجب الموافقة علي الشروط",
-    "confirm_password": "كلمة المرور غير مطابقة"
+    "confirm_password": "كلمة المرور غير مطابقة",
+    "must_select_a_category": "لابد من اختيار نوع العقار"
   },
   "error": {
     "error": "خطأ"
@@ -74,5 +75,17 @@
     "books": "الحجوزات",
     "favorite": "المفضله",
     "profile": "حسابي"
+  },
+  "add_estate": {
+    "add_estate": "اضافه عقار",
+    "estate_type" : "نوع العقار",
+    "operation_type": "نوع العمليه",
+    "sell" : "للبيع",
+    "rent" : "للإيجار",
+    "images": "صور العقار",
+    "upload_image": "رفع صورة"
+  },
+  "categories": {
+    "select_category": "اختر نوع العقار"
   }
 }

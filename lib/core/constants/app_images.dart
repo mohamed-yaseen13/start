@@ -38,4 +38,7 @@ class AppImages {
   static const String notificationIcon =
       'assets/images/home/notification_icon.svg';
   static const String redCircleIcon = 'assets/images/home/red_circle_icon.svg';
+
+  // Add Estate
+  static const String uploadIcon = 'assets/images/add_estate/upload_icon.svg';
 }

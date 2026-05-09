@@ -49,14 +49,11 @@ class DropDownWidgetState extends State<DropDownWidget> {
           },
           child: Container(
             width: widget.width ?? 1.sw,
+            height: 52.h,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(widget.borderRadius ?? 10),
+              borderRadius: BorderRadius.circular(widget.borderRadius ?? 12.r),
               color: widget.color ?? colors.surface, // theme-aware background
-              border: Border.all(
-                color:
-                    widget.borderColor ??
-                    colors.onSurface.withValues(alpha: 0.5),
-              ),
+              border: Border.all(color: widget.borderColor ?? colors.secondary),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -81,9 +78,7 @@ class DropDownWidgetState extends State<DropDownWidget> {
                   const Spacer(),
                   Icon(
                     Icons.keyboard_arrow_down_sharp,
-                    color: colors.onSurface.withValues(
-                      alpha: 0.6,
-                    ), // theme-aware arrow
+                    color: colors.primary,
                     size: Constants.isTablet ? 60 : 30,
                   ),
                   const SizedBox(height: 10),
