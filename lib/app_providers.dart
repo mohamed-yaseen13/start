@@ -8,6 +8,8 @@ import 'package:start/features/auth/presentation/providers/login_provider.dart';
 import 'package:start/features/auth/presentation/providers/otp_provider.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/categories/presentation/providers/categories_provider.dart';
+import 'package:start/features/city/presentation/providers/city_provider.dart';
+import 'package:start/features/district/presentation/providers/district_provider.dart';
 import 'package:start/features/estate/presentation/providers/add_estate_provider.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 import 'package:start/features/nav/presentation/providers/nav_provider.dart';
@@ -37,6 +39,8 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NavProvider()),
         ChangeNotifierProvider(create: (_) => CategoriesProvider()),
         ChangeNotifierProvider(create: (_) => AddEstateProvider()),
+        ChangeNotifierProvider(create: (_) => CityProvider()),
+        ChangeNotifierProvider(create: (_) => DistrictProvider()),
       ],
       child: child,
     );

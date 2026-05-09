@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/button_widget.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/core/widgets/drop_down_widget.dart';
 import 'package:start/core/widgets/validation_widget.dart';
 import 'package:start/features/categories/presentation/providers/categories_provider.dart';
@@ -35,7 +36,7 @@ class AddEstatePageStepOne extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 18.w),
         child: SingleChildScrollView(
           child: Form(
-            key: addEstateProvider.formKey,
+            key: addEstateProvider.formKey1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,18 +65,12 @@ class AddEstatePageStepOne extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ButtonWidget(
-              text: LanguageProvider.translate('global', 'next'),
-              onTap: () {
-                addEstateProvider.summitStepOne();
-              },
-            ),
-          ],
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: ButtonWidget(
+          text: LanguageProvider.translate('global', 'next'),
+          onTap: () {
+            addEstateProvider.submitStepOne();
+          },
         ),
       ),
     );

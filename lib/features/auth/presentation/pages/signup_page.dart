@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:start/core/widgets/already_have_an_account_widget.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/core/widgets/divider_widget.dart';
 import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 import 'package:start/features/auth/presentation/widgets/login/login_with_social_widget.dart';
@@ -30,12 +31,8 @@ class SignupPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [AlreadyHaveAnAccountWidget()],
-        ),
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: AlreadyHaveAnAccountWidget(),
       ),
     );
   }

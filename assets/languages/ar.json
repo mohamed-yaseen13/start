@@ -65,7 +65,9 @@
     "otp_invalid": "برجاء إدخال الكود",
     "terms": "يجب الموافقة علي الشروط",
     "confirm_password": "كلمة المرور غير مطابقة",
-    "must_select_a_category": "لابد من اختيار نوع العقار"
+    "must_select_a_category": "لابد من اختيار نوع العقار",
+    "must_select_a_city": "لابد من اختيار المدينة",
+    "must_select_a_district": "لابد من اختيار الحي السكني"
   },
   "error": {
     "error": "خطأ"
@@ -83,9 +85,20 @@
     "sell" : "للبيع",
     "rent" : "للإيجار",
     "images": "صور العقار",
-    "upload_image": "رفع صورة"
+    "upload_image": "رفع صورة",
+    "location": "الموقع",
+    "city": "المدينة",
+    "district": "الحي",
+    "street_name": "اسم الشارع",
+    "optional": "(اختياري)"
   },
   "categories": {
     "select_category": "اختر نوع العقار"
+  },
+  "city": {
+    "select_city": "اختر المدينة"
+  },
+  "district": {
+    "select_district": "اختر الحي السكني"
   }
 }

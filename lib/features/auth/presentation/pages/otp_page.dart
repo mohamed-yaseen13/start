@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/core/widgets/button_widget.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/features/auth/presentation/providers/otp_operations.dart';
 import 'package:start/features/auth/presentation/providers/otp_provider.dart';
 import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
@@ -51,19 +52,13 @@ class OtpPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ButtonWidget(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                otp.submitOtpForm();
-              },
-              text: 'verify',
-            ),
-          ],
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: ButtonWidget(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            otp.submitOtpForm();
+          },
+          text: 'verify',
         ),
       ),
     );

@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:start/core/helper_function/navigation.dart';
 import 'package:start/core/models/text_field_model.dart';
 import 'package:start/features/estate/presentation/pages/add_estate_page_step_one.dart';
+import 'package:start/features/estate/presentation/pages/add_estate_page_step_three.dart';
 import 'package:start/features/estate/presentation/pages/add_estate_page_step_two.dart';
 import 'package:start/features/estate/presentation/providers/add_estate_operations.dart';
 
@@ -14,7 +15,9 @@ class AddEstateProvider extends ChangeNotifier {
   LatLng? latLng;
   List<TextFieldModel> stepTwoInputs = [];
   List<TextFieldModel> stepThreeInputs = [];
-  final formKey = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
 
   void goTo() {
     resetStepOne();
@@ -26,6 +29,11 @@ class AddEstateProvider extends ChangeNotifier {
   }
 
   void goToSecondStep() {
+    initInputs();
     navP(AddEstatePageStepTwo());
+  }
+
+  void goToThirdStep() {
+    navP(AddEstatePageStepThree());
   }
 }

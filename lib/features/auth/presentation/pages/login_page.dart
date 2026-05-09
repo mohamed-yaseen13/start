@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:start/core/constants/app_images.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/core/widgets/divider_widget.dart';
 import 'package:start/core/widgets/dont_have_an_account_widget.dart';
 import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
@@ -40,12 +41,8 @@ class LoginPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [DontHaveAnAccountWidget()],
-        ),
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: DontHaveAnAccountWidget(),
       ),
     );
   }

@@ -13,9 +13,9 @@ class CategoriesProvider extends ChangeNotifier
     implements DropDownClass<Category> {
   List<Category> categories = [
     Category(id: 1, name: 'شقة'),
-    Category(id: 1, name: 'منزل'),
-    Category(id: 1, name: 'فيلا'),
-    Category(id: 1, name: 'محل'),
+    Category(id: 2, name: 'منزل'),
+    Category(id: 3, name: 'فيلا'),
+    Category(id: 4, name: 'محل'),
   ];
   Category? selectedCategory;
 

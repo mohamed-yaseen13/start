@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/widgets/button_widget.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/features/auth/presentation/providers/create_new_password_operations.dart';
 import 'package:start/features/auth/presentation/providers/create_new_password_provider.dart';
 import 'package:start/features/auth/presentation/widgets/create_new_password/create_new_password_form_widget.dart';
@@ -32,19 +33,13 @@ class CreateNewPasswordPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ButtonWidget(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                createNewPassword.submitCreateNewPasswordForm();
-              },
-              text: 'change_password',
-            ),
-          ],
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: ButtonWidget(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            createNewPassword.submitCreateNewPasswordForm();
+          },
+          text: 'change_password',
         ),
       ),
     );

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:start/core/constants/app_images.dart';
 import 'package:start/core/widgets/button_widget.dart';
+import 'package:start/core/widgets/custom_bottom_nav_bar_widget.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
 import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 
@@ -30,19 +31,13 @@ class CreateNewPasswordSuccessPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 48.h, top: 12.h),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ButtonWidget(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                context.read<SignupProvider>().goTo();
-              },
-              text: 'go_to_signup_page',
-            ),
-          ],
+      bottomNavigationBar: CustomBottomNavBarWidget(
+        child: ButtonWidget(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            context.read<SignupProvider>().goTo();
+          },
+          text: 'go_to_signup_page',
         ),
       ),
     );
