@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:start/core/widgets/already_have_an_account_widget.dart';
 import 'package:start/core/widgets/divider_widget.dart';
-import 'package:start/features/auth/presentation/widgets/header_widget.dart';
+import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 import 'package:start/features/auth/presentation/widgets/login/login_with_social_widget.dart';
 import 'package:start/features/auth/presentation/widgets/signup/signup_form_widget.dart';
 
@@ -19,7 +19,7 @@ class SignupPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderWidget(title: 'title', decs: 'signup_text'),
+              AuthHeaderWidget(title: 'title', decs: 'signup_text'),
               SizedBox(height: 24.h),
               SignupFormWidget(),
               SizedBox(height: 24.h),

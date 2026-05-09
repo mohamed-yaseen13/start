@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:start/core/Theme/app_theme.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
 
-class HeaderWidget extends StatelessWidget {
+class AuthHeaderWidget extends StatelessWidget {
   final String title;
   final String decs;
   final bool isCentered;
 
-  const HeaderWidget({
+  const AuthHeaderWidget({
     super.key,
     required this.title,
     required this.decs,

@@ -5,7 +5,7 @@ import 'package:start/core/widgets/button_widget.dart';
 import 'package:start/features/auth/presentation/providers/create_new_password_operations.dart';
 import 'package:start/features/auth/presentation/providers/create_new_password_provider.dart';
 import 'package:start/features/auth/presentation/widgets/create_new_password/create_new_password_form_widget.dart';
-import 'package:start/features/auth/presentation/widgets/header_widget.dart';
+import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 
 class CreateNewPasswordPage extends StatelessWidget {
   const CreateNewPasswordPage({super.key});
@@ -22,7 +22,7 @@ class CreateNewPasswordPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderWidget(
+              AuthHeaderWidget(
                 title: 'create_new_password',
                 decs: 'new_password_text',
               ),

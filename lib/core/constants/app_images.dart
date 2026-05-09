@@ -31,4 +31,11 @@ class AppImages {
   static const String navBookIcon = 'assets/images/home/book_icon.svg';
   static const String navFavoriteIcon = 'assets/images/home/favorite_icon.svg';
   static const String navUserIcon = 'assets/images/home/user_icon.svg';
+
+  static const String homeCircle = 'assets/images/home/home_circle.svg';
+
+  static const String userImage = 'assets/images/home/user_image.jpg';
+  static const String notificationIcon =
+      'assets/images/home/notification_icon.svg';
+  static const String redCircleIcon = 'assets/images/home/red_circle_icon.svg';
 }

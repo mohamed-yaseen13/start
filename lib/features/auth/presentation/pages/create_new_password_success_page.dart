@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:start/core/constants/app_images.dart';
 import 'package:start/core/widgets/button_widget.dart';
 import 'package:start/features/auth/presentation/providers/signup_provider.dart';
-import 'package:start/features/auth/presentation/widgets/header_widget.dart';
+import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 
 class CreateNewPasswordSuccessPage extends StatelessWidget {
   const CreateNewPasswordSuccessPage({super.key});
@@ -21,7 +21,7 @@ class CreateNewPasswordSuccessPage extends StatelessWidget {
             children: [
               SvgPicture.asset(AppImages.createNewPasswordSuccessImage),
               SizedBox(height: 12.h),
-              HeaderWidget(
+              AuthHeaderWidget(
                 title: 'new_password_success',
                 decs: 'new_password_success_text',
                 isCentered: true,

@@ -5,7 +5,7 @@ import 'package:start/core/widgets/button_widget.dart';
 import 'package:start/features/auth/presentation/providers/forgot_password_operations.dart';
 import 'package:start/features/auth/presentation/providers/forgot_password_provider.dart';
 import 'package:start/features/auth/presentation/widgets/forgot_password/forgot_password_form_widget.dart';
-import 'package:start/features/auth/presentation/widgets/header_widget.dart';
+import 'package:start/features/auth/presentation/widgets/auth_header_widget.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -22,7 +22,7 @@ class ForgotPasswordPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderWidget(
+              AuthHeaderWidget(
                 title: 'forgot_password_title',
                 decs: 'forgot_password_decs',
               ),
