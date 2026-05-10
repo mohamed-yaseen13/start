@@ -33,11 +33,17 @@ class AppImages {
   static const String navUserIcon = 'assets/images/home/user_icon.svg';
 
   static const String homeCircle = 'assets/images/home/home_circle.svg';
-
   static const String userImage = 'assets/images/home/user_image.jpg';
   static const String notificationIcon =
       'assets/images/home/notification_icon.svg';
   static const String redCircleIcon = 'assets/images/home/red_circle_icon.svg';
+
+  static const String homeSearchIcon =
+      'assets/images/home/home_search_icon.svg';
+  static const String homeSearchDividerIcon =
+      'assets/images/home/home_search_divider_icon.svg';
+  static const String homeSearchFilterIcon =
+      'assets/images/home/home_search_filter_icon.svg';
 
   // Add Estate
   static const String uploadIcon = 'assets/images/add_estate/upload_icon.svg';

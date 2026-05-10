@@ -7,7 +7,7 @@ import 'package:start/core/constants/constants.dart';
 import 'package:start/core/models/progress_provider.dart';
 import 'package:start/features/language/domain/entities/app_localizations.dart';
 import 'package:start/features/language/presentation/provider/language_provider.dart';
-import 'package:start/features/splash_screen/presentation/pages/splash_page.dart';
+import 'package:start/features/nav/presentation/views/nav_bar_view.dart';
 import 'core/Theme/theme_provider.dart';
 
 class MainApp extends StatelessWidget {
@@ -41,7 +41,8 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     theme: themeProvider.getTheme(),
-                    home: const SplashPage(),
+                    // home: const SplashPage(),
+                    home: NavBarView(),
                     builder: (context, child) {
                       return GestureDetector(
                         onTap: () {
