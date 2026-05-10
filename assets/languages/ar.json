@@ -67,7 +67,12 @@
     "confirm_password": "كلمة المرور غير مطابقة",
     "must_select_a_category": "لابد من اختيار نوع العقار",
     "must_select_a_city": "لابد من اختيار المدينة",
-    "must_select_a_district": "لابد من اختيار الحي السكني"
+    "must_select_a_district": "لابد من اختيار الحي السكني",
+    "estate_name": "من فضلك أدخل اسم العقار",
+    "area": "من فضلك أدخل مساحة العقار",
+    "estate_rooms": "من فضلك أدخل عدد الغرف",
+    "estate_bath": "من فضلك أدخل عدد الحمامات",
+    "price": "من فضلك أدخل سعر العقار"
   },
   "error": {
     "error": "خطأ"
@@ -90,7 +95,15 @@
     "city": "المدينة",
     "district": "الحي",
     "street_name": "اسم الشارع",
-    "optional": "(اختياري)"
+    "optional": "(اختياري)",
+    "estate_name": "اسم العقار",
+    "estate_area": "المساحة",
+    "estate_rooms": "الغرف",
+    "estate_bath": "الحمامات",
+    "estate_disc": "الوصف",
+    "estate_price": "السعر",
+    "estate_details": "تفاصيل العقار",
+    "upload_estate": "نشر العقار"
   },
   "categories": {
     "select_category": "اختر نوع العقار"

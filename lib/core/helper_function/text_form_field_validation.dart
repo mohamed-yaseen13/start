@@ -4,6 +4,34 @@ final RegExp emailValid = RegExp(
   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
 );
 
+String? validateEstateRooms(String? value) {
+  if (value!.isEmpty) {
+    return LanguageProvider.translate("validation", "estate_rooms");
+  }
+  return null;
+}
+
+String? validateEstateName(String? value) {
+  if (value!.isEmpty) {
+    return LanguageProvider.translate("validation", "estate_name");
+  }
+  return null;
+}
+
+String? validateArea(String? value) {
+  if (value!.isEmpty) {
+    return LanguageProvider.translate("validation", "area");
+  }
+  return null;
+}
+
+String? validateEstateBath(String? value) {
+  if (value!.isEmpty) {
+    return LanguageProvider.translate("validation", "estate_bath");
+  }
+  return null;
+}
+
 bool validEnglish(String value) {
   RegExp regex = RegExp(r'/^[A-Za-z0-9]*$');
   return (regex.hasMatch(value));
@@ -43,8 +71,8 @@ String? validateEmail(String? value) {
 String? validateOtp(String? value) {
   if (value!.isEmpty) {
     return LanguageProvider.translate("validation", "otp_required");
-  }else if (value.length <4){
-      return LanguageProvider.translate("validation", "otp_length");
+  } else if (value.length < 4) {
+    return LanguageProvider.translate("validation", "otp_length");
   }
   return null;
 }
@@ -59,19 +87,17 @@ String? validatePassword(String? value) {
 String validateCity() {
   return LanguageProvider.translate("validation", "government");
 }
+
 String validateImage() {
   return LanguageProvider.translate("validation", "image");
 }
+
 String validateImageId() {
   return LanguageProvider.translate("validation", "image_id");
 }
 
 String validateAddress() {
   return LanguageProvider.translate("validation", "address");
-}
-
-String validateArea() {
-  return LanguageProvider.translate("validation", "area");
 }
 
 String? validatePart() {
@@ -120,9 +146,6 @@ String? validateStreetName(String? value) {
   return null;
 }
 
-
-
-
 String? validateCheckPhone(String? value) {
   if (value!.isEmpty) {
     return LanguageProvider.translate("validation", "phone_check");
@@ -143,9 +166,6 @@ String? validateConfirmPassword(String? value, String? confirmPassword) {
   }
   return null;
 }
-
-
-
 
 String? validateDate(String? value) {
   if (value!.isEmpty) {
@@ -188,14 +208,13 @@ String? validateCategory(String? value) {
   }
   return null;
 }
+
 String? validateSubCategory(String? value) {
   if (value!.isEmpty) {
     return LanguageProvider.translate("validation", "choose_sub_category");
   }
   return null;
 }
-
-
 
 String? validateFilter(String? value) {
   if (value!.isEmpty) {
@@ -204,7 +223,6 @@ String? validateFilter(String? value) {
   return null;
 }
 
-
 String? validatePriceType(String? value) {
   if (value!.isEmpty) {
     return LanguageProvider.translate("validation", "add_price_type");
@@ -212,11 +230,9 @@ String? validatePriceType(String? value) {
   return null;
 }
 
-
 String? validateMap(String? value) {
   if (value!.isEmpty) {
     return LanguageProvider.translate("validation", "add_map_address");
   }
   return null;
 }
-
